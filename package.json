@@ -1,76 +1,84 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=14"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "peerDependencies": {
-    "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "@op-ent/unstyled-ui",
-  "author": "Florian LEFEBVRE",
-  "module": "dist/unstyled-ui.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/unstyled-ui.cjs.production.min.js",
-      "limit": "10 KB"
+    "name": "@op-ent/unstyled-ui",
+    "author": "Florian LEFEBVRE",
+    "version": "0.1.0",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=14"
     },
-    {
-      "path": "dist/unstyled-ui.esm.js",
-      "limit": "10 KB"
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
+    "size-limit": [
+        {
+            "path": "dist/index.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/index.mjs",
+            "limit": "10 KB"
+        }
+    ],
+    "scripts": {
+        "start": "tsup --watch \"src/**/*.ts\"",
+        "build": "tsup",
+        "test": "vitest run",
+        "test:ui": "vitest --ui",
+        "lint": "yarn lint:check && yarn prettier:check",
+        "lint:check": "eslint . --ext js,jsx,ts,tsx --max-warnings=3 --config .eslintrc.json --no-eslintrc",
+        "prettier:check": "prettier -c .",
+        "prettier:write": "prettier -w .",
+        "prepare": "yarn build",
+        "size": "size-limit",
+        "storybook": "start-storybook -p 6006",
+        "storybook:build": "build-storybook"
+    },
+    "peerDependencies": {
+        "react": ">=16"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "^6.5.9",
+        "@storybook/addon-info": "^5.3.21",
+        "@storybook/addon-links": "^6.5.9",
+        "@storybook/addons": "^6.5.9",
+        "@storybook/react": "^6.5.9",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.3.0",
+        "@types/react": "^18.0.15",
+        "@types/react-dom": "^18.0.6",
+        "@types/testing-library__jest-dom": "^5.14.5",
+        "@typescript-eslint/eslint-plugin": "^5.31.0",
+        "@typescript-eslint/parser": "^5.31.0",
+        "@vitejs/plugin-react": "^2.0.0",
+        "@vitest/ui": "^0.19.1",
+        "eslint": "^8.20.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.30.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "husky": "^8.0.1",
+        "jsdom": "^20.0.0",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "size-limit": "^7.0.8",
+        "ts-essentials": "^9.2.0",
+        "tsup": "^6.2.0",
+        "typescript": "^4.7.4",
+        "vitest": "^0.19.1"
+    },
+    "dependencies": {
+        "clsx": "^1.2.1",
+        "defu": "^6.0.0"
     }
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@size-limit/preset-small-lib": "^7.0.8",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/addons": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "babel-loader": "^8.2.5",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "size-limit": "^7.0.8",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "clsx": "^1.2.1",
-    "deepmerge": "^4.2.2"
-  }
 }

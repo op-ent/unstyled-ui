@@ -1,3 +1,3 @@
-export * from './components';
-export * from './theme';
-export * from './context/theme';
+export * from './components'
+export * from './theme'
+export * from './context/theme'

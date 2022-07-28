@@ -1,25 +1,24 @@
-import React, { createContext, useContext } from 'react';
-import merge from 'deepmerge';
-import theme from '../theme/index';
-import combineMerge from '../utils/combineMerge';
-import { Theme, ThemeProviderProps } from '../types/theme';
+import React, { createContext, useContext } from 'react'
+import defu from 'defu'
+import theme from '../theme/index'
+import { Theme, ThemeProviderProps } from '../types/theme'
 
-const UnstyledUiTheme = createContext<Theme>(theme);
-UnstyledUiTheme.displayName = 'UnstyledUiThemeProvider';
+const UnstyledUiTheme = createContext<Theme>(theme)
+UnstyledUiTheme.displayName = 'UnstyledUiThemeProvider'
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({
-  value = theme,
-  children,
+    value = theme,
+    children,
 }) => {
-  const mergedValue: Theme = merge(theme, value, { arrayMerge: combineMerge });
+    const mergedValue: Theme = defu(theme, value)
 
-  return (
-    <UnstyledUiTheme.Provider value={mergedValue}>
-      {children}
-    </UnstyledUiTheme.Provider>
-  );
-};
+    return (
+        <UnstyledUiTheme.Provider value={mergedValue}>
+            {children}
+        </UnstyledUiTheme.Provider>
+    )
+}
 
-const useTheme = () => useContext(UnstyledUiTheme);
+const useTheme = () => useContext(UnstyledUiTheme)
 
-export { UnstyledUiTheme, ThemeProvider, useTheme };
+export { UnstyledUiTheme, ThemeProvider, useTheme }

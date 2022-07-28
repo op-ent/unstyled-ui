@@ -1,5 +1,5 @@
-import button from './components/button';
+import button from './components/button'
 
-const theme = { button };
+const theme = { button }
 
-export default theme;
+export default theme

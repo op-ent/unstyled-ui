@@ -1,14 +1,14 @@
-import { Color } from '../../../types/base';
+import { Color } from '../../../types/base'
 
 const buttonSolid: Record<Color, string> = {
-  primary: '',
-  secondary: '',
-  tertiary: '',
-  success: '',
-  danger: '',
-  warning: '',
-  info: '',
-  neutral: '',
-};
+    primary: '',
+    secondary: '',
+    tertiary: '',
+    success: '',
+    danger: '',
+    warning: '',
+    info: '',
+    neutral: '',
+}
 
-export default buttonSolid;
+export default buttonSolid
