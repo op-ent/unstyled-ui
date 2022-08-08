@@ -43,6 +43,10 @@ const { Button } = require('@op-ent/unstyled-ui')
 -   Watch files in development using `yarn dev`
 -   Run interactive tests using `yarn test`
 
+## Inspiration
+
+- [Material Tailwind](https://github.com/creativetimofficial/material-tailwind)
+
 ## License
 
 Published under [MIT License](./LICENSE).
