@@ -45,7 +45,7 @@ const { Button } = require('@op-ent/unstyled-ui')
 
 ## Inspiration
 
-- [Material Tailwind](https://github.com/creativetimofficial/material-tailwind)
+-   [Material Tailwind](https://github.com/creativetimofficial/material-tailwind)
 
 ## License
 
