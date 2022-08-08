@@ -7,11 +7,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
     plugins: [react()],
     test: {
-        // Jest like globals
-        globals: true,
         environment: 'jsdom',
         include: ['tests/**/*.{test,spec}.{js,jsx,ts,tsx}'],
-        // Extend jest-dom matchers
-        setupFiles: ['./setupTest.js'],
+        setupFiles: ['./tests.setup.js'],
     },
 })

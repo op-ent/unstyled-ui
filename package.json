@@ -28,9 +28,9 @@
         "test"
     ],
     "scripts": {
-        "start": "tsup --watch \"src/**/*.ts\"",
+        "dev": "tsup --watch \"src/**/*.{js,jsx,ts,tsx}\"",
         "build": "tsup",
-        "test": "vitest run",
+        "test": "vitest run --coverage",
         "test:ui": "vitest --ui",
         "lint": "yarn lint:check && yarn prettier:check",
         "lint:check": "eslint . --ext js,jsx,ts,tsx --max-warnings=3 --config .eslintrc.json --no-eslintrc",
@@ -59,6 +59,7 @@
         "@typescript-eslint/parser": "^5.31.0",
         "@vitejs/plugin-react": "^2.0.0",
         "@vitest/ui": "^0.19.1",
+        "c8": "^7.12.0",
         "eslint": "^8.20.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.26.0",

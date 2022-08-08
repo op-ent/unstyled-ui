@@ -1,5 +1,13 @@
-name: CI
-on: [push]
+name: ci
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
 jobs:
     build:
         name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
@@ -27,6 +35,8 @@ jobs:
 
             - name: Test
               run: yarn test
+
+            - uses: codecov/codecov-action@v3
 
             - name: Build
               run: yarn build
