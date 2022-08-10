@@ -1,3 +1,4 @@
 export * from './components'
 export * from './theme'
-export * from './context/theme'
+export * from './types'
+export * from './utils'

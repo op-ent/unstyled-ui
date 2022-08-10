@@ -1,5 +1,2 @@
-import button from './components/button'
-
-const theme = { button }
-
-export default theme
+export * from './context'
+export { default as theme } from './theme'

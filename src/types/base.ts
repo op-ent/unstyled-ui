@@ -7,3 +7,9 @@ export type Color =
     | 'warning'
     | 'info'
     | 'neutral'
+
+export type DefaultProps = {
+    unstyled?: boolean
+}
+
+export type ColorsMap = Record<Color, string>

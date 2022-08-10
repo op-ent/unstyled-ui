@@ -28,7 +28,8 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".tsx"] }],
         "react/require-default-props": "off",
         "jsx-a11y/alt-text": "off",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "react/prop-types": "off"
     },
     "settings": {
         "react": {

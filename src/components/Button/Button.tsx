@@ -1,31 +1,38 @@
-import clsx from 'clsx'
 import React, { forwardRef } from 'react'
-import { useTheme } from '../../context/theme'
-import { ButtonComponent, FullButtonProps } from '../../types/components/button'
-import { PolymorphicRef } from '../../types/polymorphic'
+import { ButtonProps } from './Button.types'
+import {
+    Component,
+    ComponentProps,
+    PolymorphicRef,
+} from '../../types/polymorphic'
+import { useTheme } from '../../theme'
+import { generateClassName } from '../../utils/generate-class-name'
 
-export const Button: ButtonComponent = forwardRef(
-    <C extends React.ElementType>(
-        props: FullButtonProps<C>,
+export const Button: Component = forwardRef(
+    <C extends React.ElementType = 'button'>(
+        _: ComponentProps<C, ButtonProps>,
         ref?: PolymorphicRef<C>
     ) => {
         // 1. Initialization
-        const { button } = useTheme()
-        const { defaultProps, styles } = button
-        const { base, variants, sizes } = styles
+        const {
+            defaultProps,
+            styles: { base, variants, sizes },
+        } = useTheme().button
+        const props = { ...defaultProps, ..._ }
 
         // 2. Props
         const {
-            as = defaultProps.as,
+            as,
+            variant,
+            size,
+            color,
+            block,
+            disabled,
+            loading,
+            unstyled,
             children,
-            variant = defaultProps.variant,
-            size = defaultProps.size,
-            color = defaultProps.color,
-            block = defaultProps.block,
-            disabled = defaultProps.disabled,
-            loading = defaultProps.loading,
             className,
-            type,
+            type = as === 'button' ? as : undefined,
             ...rest
         } = props
 
@@ -34,23 +41,19 @@ export const Button: ButtonComponent = forwardRef(
         const buttonBlock = block && base.block
         const buttonVariant = variants[variant][color]
         const buttonSize = sizes[size]
-        const classes = clsx(
+        const classes = generateClassName(
+            className,
             buttonBase,
             buttonBlock,
             buttonVariant,
-            buttonSize,
-            className
-        )
+            buttonSize
+        )(unstyled)
 
         // 4. Render
-        const attrs = { ref, disabled, ...rest }
-        const Component = as
+        const attrs = { ...rest, disabled, type }
+        const Component = as as React.ElementType
         return (
-            <Component
-                {...attrs}
-                className={classes}
-                type={type || (as === 'button' ? as : undefined)}
-            >
+            <Component ref={ref} className={classes} {...attrs}>
                 {children}
             </Component>
         )

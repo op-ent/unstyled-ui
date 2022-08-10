@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import { Button, ThemeProvider } from '../src'
-import { ButtonProps } from '../src/types/components/button'
+import { Button, ThemeProvider, ButtonProps } from '../src'
 
 const meta: Meta = {
     title: 'Welcome',
@@ -21,18 +20,7 @@ const meta: Meta = {
 export default meta
 
 const Template: Story<ButtonProps> = (args) => (
-    <ThemeProvider
-        value={{
-            button: {
-                defaultProps: {},
-                styles: {
-                    base: {
-                        initial: 'bg-red-500',
-                    },
-                },
-            },
-        }}
-    >
+    <ThemeProvider>
         <Button {...args} />
     </ThemeProvider>
 )
