@@ -1,4 +1,4 @@
-import { ComponentStyles, ComponentTheme } from '../../types'
+import { ComponentProps, ComponentStyles, ComponentTheme } from '../../types'
 import type { Color, DefaultProps } from '../../types/base'
 
 export type ButtonVariant = 'solid' | 'outline' | 'ghost'
@@ -29,3 +29,7 @@ export type ButtonTheme = ComponentTheme<
     ButtonSize,
     ButtonVariant
 >
+
+export type ButtonComponent = <C extends React.ElementType = 'button'>(
+    props: ComponentProps<C, ButtonProps>
+) => React.ReactElement | null

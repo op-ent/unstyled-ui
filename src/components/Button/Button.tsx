@@ -1,14 +1,10 @@
 import React, { forwardRef } from 'react'
-import { ButtonProps } from './Button.types'
-import {
-    Component,
-    ComponentProps,
-    PolymorphicRef,
-} from '../../types/polymorphic'
+import { ButtonComponent, ButtonProps } from './Button.types'
+import { ComponentProps, PolymorphicRef } from '../../types/polymorphic'
 import { useTheme } from '../../theme'
 import { generateClassName } from '../../utils/generate-class-name'
 
-export const Button: Component = forwardRef(
+export const Button: ButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(
         _: ComponentProps<C, ButtonProps>,
         ref?: PolymorphicRef<C>
