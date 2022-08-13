@@ -10,7 +10,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     value = {},
     children,
 }) => {
-    const mergedValue: Theme = defu(value, theme)
+    const mergedValue = defu(value, theme) as Theme
 
     return (
         <UnstyledUiTheme.Provider value={mergedValue}>

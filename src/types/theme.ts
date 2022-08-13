@@ -1,8 +1,10 @@
 import { DeepPartial } from 'ts-essentials'
-import { theme } from '../theme'
-import { Color, DefaultProps } from './base'
+import { ButtonTheme } from '../components'
+import { UnstyledUiGlobalColor, DefaultProps } from './base'
 
-export type Theme = typeof theme
+export type Theme = {
+    button: ButtonTheme
+}
 
 export interface ThemeProviderProps {
     value?: DeepPartial<Theme>
@@ -13,11 +15,11 @@ export interface ComponentStyles<
     Sizes extends string,
     Variants extends string
 > {
-    base?: {
-        initial?: string
+    base: {
+        initial: string
     }
     sizes?: Record<Sizes, string>
-    variants?: Record<Variants, Record<Color, string>>
+    variants?: Record<Variants, Record<UnstyledUiGlobalColor, string>>
 }
 
 export interface ComponentTheme<
@@ -27,5 +29,5 @@ export interface ComponentTheme<
     V extends string
 > {
     defaultProps?: Props & { as?: React.ElementType }
-    styles?: Styles
+    styles: Styles
 }

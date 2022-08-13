@@ -1,5 +1,9 @@
 import React, { forwardRef } from 'react'
-import { ButtonComponent, ButtonProps } from './Button.types'
+import {
+    ButtonComponent,
+    ButtonProps,
+    DefaultButtonTheme,
+} from './Button.types'
 import { ComponentProps, PolymorphicRef } from '../../types/polymorphic'
 import { useTheme } from '../../theme'
 import { generateClassName } from '../../utils/generate-class-name'
@@ -11,9 +15,10 @@ export const Button: ButtonComponent = forwardRef(
     ) => {
         // 1. Initialization
         const {
-            defaultProps,
             styles: { base, variants, sizes },
         } = useTheme().button
+        const defaultProps = useTheme().button
+            .defaultProps as DefaultButtonTheme['defaultProps']
         const props = { ...defaultProps, ..._ }
 
         // 2. Props
@@ -35,8 +40,8 @@ export const Button: ButtonComponent = forwardRef(
         // 3. styles
         const buttonBase = base.initial
         const buttonBlock = block && base.block
-        const buttonVariant = variants[variant][color]
-        const buttonSize = sizes[size]
+        const buttonVariant = variants?.[variant]?.[color]
+        const buttonSize = sizes?.[size]
         const classes = generateClassName(
             className,
             buttonBase,

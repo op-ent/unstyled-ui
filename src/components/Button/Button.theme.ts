@@ -1,44 +1,11 @@
-import { DeepRequired } from 'ts-essentials'
-import { ColorsMap } from '../../types/base'
-import { ButtonTheme } from './Button.types'
+import { DefaultButtonTheme } from './Button.types'
 
-const buttonSolid: ColorsMap = {
-    primary: '',
-    secondary: '',
-    tertiary: '',
-    success: '',
-    danger: '',
-    warning: '',
-    info: '',
-    neutral: '',
-}
-const buttonOutline: ColorsMap = {
-    primary: '',
-    secondary: '',
-    tertiary: '',
-    success: '',
-    danger: '',
-    warning: '',
-    info: '',
-    neutral: '',
-}
-const buttonGhost: ColorsMap = {
-    primary: '',
-    secondary: '',
-    tertiary: '',
-    success: '',
-    danger: '',
-    warning: '',
-    info: '',
-    neutral: '',
-}
-
-export const buttonTheme: DeepRequired<ButtonTheme> = {
+export const DEFAULT_BUTTON_THEME: DefaultButtonTheme = {
     defaultProps: {
         as: 'button',
-        variant: 'solid',
-        size: 'md',
-        color: 'neutral',
+        variant: '',
+        size: '',
+        color: '',
         block: false,
         disabled: false,
         loading: false,
@@ -49,15 +16,7 @@ export const buttonTheme: DeepRequired<ButtonTheme> = {
             initial: '',
             block: '',
         },
-        sizes: {
-            sm: '',
-            md: '',
-            lg: '',
-        },
-        variants: {
-            solid: buttonSolid,
-            outline: buttonOutline,
-            ghost: buttonGhost,
-        },
+        sizes: {},
+        variants: {},
     },
 }
