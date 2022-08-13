@@ -58,15 +58,15 @@ Made with ❤️ by [Florian LEFEBVRE](https://github.com/florian-lefebvre) in F
 <!-- Badges -->
 <!-- https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba -->
 
-[npm-version-src]: https://img.shields.io/npm/v/op-ent/unstyled-ui?style=flat-square
-[npm-version-href]: https://npmjs.com/package/op-ent/unstyled-ui
-[npm-downloads-src]: https://img.shields.io/npm/dm/op-ent/unstyled-ui?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/op-ent/unstyled-ui
-[github-actions-src]: https://img.shields.io/github/workflow/status/op-ent/op-ent/unstyled-ui/ci/main?style=flat-square
-[github-actions-href]: https://github.com/op-ent/op-ent/unstyled-ui/actions?query=workflow%3Aci
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/op-ent/unstyled-ui?style=flat-square
-[bundle-href]: https://bundlephobia.com/result?p=op-ent/unstyled-ui
-[codecov-src]: https://img.shields.io/codecov/c/gh/op-ent/op-ent/unstyled-ui/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/op-ent/op-ent/unstyled-ui
+[npm-version-src]: https://img.shields.io/npm/v/@op-ent/unstyled-ui?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@op-ent/unstyled-ui
+[npm-downloads-src]: https://img.shields.io/npm/dm/@op-ent/unstyled-ui?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@op-ent/unstyled-ui
+[github-actions-src]: https://img.shields.io/github/workflow/status/op-ent/unstyled-ui/ci/main?style=flat-square
+[github-actions-href]: https://github.com/op-ent/unstyled-ui/actions?query=workflow%3Aci
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@op-ent/unstyled-ui?style=flat-square
+[bundle-href]: https://bundlephobia.com/result?p=@op-ent/unstyled-ui
+[codecov-src]: https://img.shields.io/codecov/c/gh/op-ent/unstyled-ui/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/op-ent/unstyled-ui
 [license-src]: https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square
 [license-href]: ./LICENSE
