@@ -1,6 +1,5 @@
-import type { StorybookViteConfig } from '@storybook/builder-vite'
-
-const config: StorybookViteConfig = {
+/** @type {import('@storybook/builder-vite').StorybookViteConfig} */
+module.exports = {
     core: {
         builder: '@storybook/builder-vite',
     },
@@ -18,5 +17,3 @@ const config: StorybookViteConfig = {
         return config
     },
 }
-
-module.exports = config

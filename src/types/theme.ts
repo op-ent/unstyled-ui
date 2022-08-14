@@ -48,8 +48,8 @@ export interface ComponentStyles<
     Sizes extends string,
     Variants extends string
 > {
-    base: {
-        initial: string
+    base?: {
+        initial?: string
     }
     sizes?: Record<Sizes, string>
     variants?: Record<Variants, Record<UUIColor, string>>

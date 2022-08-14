@@ -1,4 +1,4 @@
-import { DeepRequired } from 'ts-essentials'
+import { MarkOptional } from 'ts-essentials'
 import {
     ComponentProps,
     ComponentStyles,
@@ -23,6 +23,11 @@ export interface ButtonProps extends DefaultProps {
     block?: ButtonBlock
     disabled?: ButtonDisabled
     loading?: ButtonLoading
+    leftIcon?: React.ReactElement
+    rightIcon?: React.ReactElement
+    loader?: React.ReactElement
+    loadingText?: string
+    loaderPlacement?: 'left' | 'right'
 }
 
 export type ButtonStyles = ComponentStyles<UUIButtonSize, UUIButtonVariant> & {
@@ -38,14 +43,19 @@ export type ButtonTheme = ComponentTheme<
     UUIButtonVariant
 >
 
-export type DefaultButtonTheme = DeepRequired<Omit<ButtonTheme, 'styles'>> & {
-    styles: ButtonStyles & {
-        base: {
-            initial: string
-            block: string
-        }
-    }
+export type DefaultComponentTheme<
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    T extends ComponentTheme<any, any, any, any>,
+    O extends keyof Required<T>['defaultProps']
+> = {
+    defaultProps: MarkOptional<Required<Required<T>['defaultProps']>, O>
+    styles: T['styles']
 }
+
+export type DefaultButtonTheme = DefaultComponentTheme<
+    ButtonTheme,
+    'leftIcon' | 'rightIcon' | 'loadingText'
+>
 
 export type ButtonComponent = <C extends React.ElementType = 'button'>(
     props: ComponentProps<C, ButtonProps>

@@ -31,6 +31,11 @@ export const Button: ButtonComponent = forwardRef(
             disabled,
             loading,
             unstyled,
+            leftIcon,
+            rightIcon,
+            loader,
+            loadingText,
+            loaderPlacement,
             children,
             className,
             type = as === 'button' ? as : undefined,
@@ -38,8 +43,8 @@ export const Button: ButtonComponent = forwardRef(
         } = props
 
         // 3. styles
-        const buttonBase = base.initial
-        const buttonBlock = block && base.block
+        const buttonBase = base?.initial
+        const buttonBlock = block && base?.block
         const buttonVariant = variants?.[variant]?.[color]
         const buttonSize = sizes?.[size]
         const classes = generateClassName(
@@ -51,11 +56,18 @@ export const Button: ButtonComponent = forwardRef(
         )(unstyled)
 
         // 4. Render
-        const attrs = { ...rest, disabled, type }
+        const attrs = { ...rest, disabled: disabled || loading, type }
         const Component = as as React.ElementType
+        const childrenSpan = (
+            <span style={{ opacity: loading ? 0 : 100 }}>{children}</span>
+        )
         return (
             <Component ref={ref} className={classes} {...attrs}>
-                {children}
+                {loading && loaderPlacement === 'left' && loader}
+                {leftIcon}
+                {loading ? loadingText || childrenSpan : childrenSpan}
+                {rightIcon}
+                {loading && loaderPlacement === 'right' && loader}
             </Component>
         )
     }

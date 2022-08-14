@@ -1,3 +1,4 @@
+import React from 'react'
 import { DefaultButtonTheme } from './Button.types'
 
 export const DEFAULT_BUTTON_THEME: DefaultButtonTheme = {
@@ -10,6 +11,8 @@ export const DEFAULT_BUTTON_THEME: DefaultButtonTheme = {
         disabled: false,
         loading: false,
         unstyled: false,
+        loader: <div>...</div>,
+        loaderPlacement: 'left',
     },
     styles: {
         base: {

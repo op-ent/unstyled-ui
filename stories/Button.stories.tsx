@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import { Button, ThemeProvider, ButtonProps, useTheme } from '../src'
+import { Button, ThemeProvider, ButtonProps } from '../src'
 
 const meta: Meta = {
     title: 'Welcome',
@@ -18,15 +18,6 @@ const meta: Meta = {
 }
 
 export default meta
-
-const Tmp = () => {
-    const theme = useTheme()
-    return (
-        <pre style={{ backgroundColor: 'black', color: 'white' }}>
-            {JSON.stringify(theme, null, 2)}
-        </pre>
-    )
-}
 
 const Template: Story<ButtonProps> = (args) => (
     <ThemeProvider
@@ -46,7 +37,6 @@ const Template: Story<ButtonProps> = (args) => (
             },
         }}
     >
-        <Tmp />
         <Button {...args} />
     </ThemeProvider>
 )
@@ -56,5 +46,5 @@ const Template: Story<ButtonProps> = (args) => (
 export const Default = Template.bind({})
 
 Default.args = {
-    children: 'Hello Button',
+    children: 'Button',
 }
