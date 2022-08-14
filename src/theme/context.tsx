@@ -1,10 +1,16 @@
 import React, { createContext, useContext } from 'react'
 import defu from 'defu'
 import theme from './theme'
-import { Theme, ThemeProviderProps } from '../types/theme'
+import { Theme } from '../types/theme'
+import { DeepPartial } from 'ts-essentials'
 
 export const UnstyledUiTheme = createContext<Theme>(theme)
 UnstyledUiTheme.displayName = 'UnstyledUiThemeProvider'
+
+export interface ThemeProviderProps {
+    value?: DeepPartial<Theme>
+    children: React.ReactNode
+}
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     value = {},

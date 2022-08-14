@@ -1,80 +1,31 @@
 import { DeepRequired } from 'ts-essentials'
-import { ComponentProps, ComponentStyles, ComponentTheme } from '../../types'
-import type { UnstyledUiGlobalColor, DefaultProps } from '../../types/base'
+import {
+    ComponentProps,
+    ComponentStyles,
+    ComponentTheme,
+    UUIThemeConfig,
+} from '../../types'
+import type { UUIColor, DefaultProps } from '../../types/base'
 
-/* Button variant */
+export type UUIButtonVariant =
+    UUIThemeConfig['components']['button']['variants']
 
-/**
- * Default button variant.
- */
-export type DefaultUnstyledUiButtonVariant = string
-/**
- * Override this type to change the button variant.
- *
- * @example
- * ```ts
- * declare module '@op-ent/unstyled-ui' {
- *      export interface UnstyledUiButtonVariantOverride {
- *          variant: "solid" | "outline"
- *      }
- * }
- * ```
- */
-export type UnstyledUiButtonVariantOverride = Record<string, never>
-/**
- * Button variant that can be overridden using the `UnstyledUiButtonVariantOverride` type.
- */
-export type UnstyledUiButtonVariant = UnstyledUiButtonVariantOverride extends {
-    variant: infer CustomVariant
-}
-    ? CustomVariant
-    : DefaultUnstyledUiButtonVariant
-
-/* Button size */
-
-/**
- * Default button size.
- */
-export type DefaultUnstyledUiButtonSize = string
-/**
- * Override this type to change the button size.
- *
- * @example
- * ```ts
- * declare module '@op-ent/unstyled-ui' {
- *      export interface UnstyledUiButtonSizeOverride {
- *          size: "sm" | "md"
- *      }
- * }
- * ```
- */
-export type UnstyledUiButtonSizeOverride = Record<string, never>
-/**
- * Button size that can be overridden using the `UnstyledUiButtonSizeOverride` type.
- */
-export type UnstyledUiButtonSize = UnstyledUiButtonSizeOverride extends {
-    size: infer CustomSize
-}
-    ? CustomSize
-    : DefaultUnstyledUiButtonSize
+export type UUIButtonSize = UUIThemeConfig['components']['button']['sizes']
 
 export type ButtonBlock = boolean
 export type ButtonDisabled = boolean
 export type ButtonLoading = boolean
 
 export interface ButtonProps extends DefaultProps {
-    variant?: UnstyledUiButtonVariant
-    size?: UnstyledUiButtonSize
-    color?: UnstyledUiGlobalColor
+    variant?: UUIButtonVariant
+    size?: UUIButtonSize
+    color?: UUIColor
     block?: ButtonBlock
     disabled?: ButtonDisabled
     loading?: ButtonLoading
 }
 
-export type ButtonStyles = ComponentStyles<
-    UnstyledUiButtonSize,
-    UnstyledUiButtonVariant
-> & {
+export type ButtonStyles = ComponentStyles<UUIButtonSize, UUIButtonVariant> & {
     base?: {
         block?: string
     }
@@ -83,8 +34,8 @@ export type ButtonStyles = ComponentStyles<
 export type ButtonTheme = ComponentTheme<
     ButtonProps,
     ButtonStyles,
-    UnstyledUiButtonSize,
-    UnstyledUiButtonVariant
+    UUIButtonSize,
+    UUIButtonVariant
 >
 
 export type DefaultButtonTheme = DeepRequired<Omit<ButtonTheme, 'styles'>> & {
