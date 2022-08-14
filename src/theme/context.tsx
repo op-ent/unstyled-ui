@@ -5,18 +5,12 @@ import { Theme } from '../types/theme'
 import { DeepPartial } from 'ts-essentials'
 
 export const UnstyledUiTheme = createContext<Theme>(theme)
-UnstyledUiTheme.displayName = 'UnstyledUiThemeProvider'
 
-export interface ThemeProviderProps {
+export const ThemeProvider: React.FC<{
     value?: DeepPartial<Theme>
     children: React.ReactNode
-}
-
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({
-    value = {},
-    children,
-}) => {
-    const mergedValue = defu(value, theme) as Theme
+}> = ({ value, children }) => {
+    const mergedValue = defu(value || {}, theme) as Theme
 
     return (
         <UnstyledUiTheme.Provider value={mergedValue}>

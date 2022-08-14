@@ -1,3 +1,5 @@
+![Banner](.github/banner.svg)
+
 # @op-ent/unstyled-ui
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -6,8 +8,6 @@
 [![bundle][bundle-src]][bundle-href]
 [![Codecov][codecov-src]][codecov-href]
 [![MIT License][license-src]][license-href]
-
-[📖 **Release Notes**](./CHANGELOG.md)
 
 `@op-ent/unstyled-ui` is an headless react library.
 
@@ -34,6 +34,19 @@ import { Button } from '@op-ent/unstyled-ui'
 
 // CommonJS
 const { Button } = require('@op-ent/unstyled-ui')
+```
+
+## API Reference
+
+### Utilities
+
+#### `generateClassName` (internal)
+
+Based on `clsx`, it generates a class name based on a list of class names, the default className prop and the `unstyled` condition.
+
+```ts
+const classes = generateClassName('foo', 'bar')(true) // "foo bar"
+const classes = generateClassName('foo', 'bar')(false) // "foo"
 ```
 
 ## 💻 Development
