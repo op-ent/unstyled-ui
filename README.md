@@ -36,6 +36,31 @@ import { Button } from '@op-ent/unstyled-ui'
 const { Button } = require('@op-ent/unstyled-ui')
 ```
 
+## Planned components & features
+
+> WARNING: This is a work in progress.
+>
+> -   This list is not complete and may change at any time.
+> -   Names may change in the future.
+
+-   [ ] Button _(WIP)_
+-   [ ] ButtonGroup
+-   [ ] Dropdown
+-   [ ] Select
+-   [ ] Combobox
+-   [ ] Switch
+-   [ ] Accordion
+-   [ ] Modal
+-   [ ] Popover
+-   [ ] RadioGroup
+-   [ ] Tabs
+-   [ ] Checkbox
+-   [ ] ContextMenu (Radix)
+-   [ ] Progress
+-   [ ] Slider
+-   [ ] Toast & Notifications management (React Hot Toast)
+-   [ ] Tooltip
+
 ## API Reference
 
 ### Utilities
