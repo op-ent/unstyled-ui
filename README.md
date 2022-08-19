@@ -1,4 +1,4 @@
-![Banner](.github/banner.svg)
+![Banner](assets/banner.svg)
 
 # @op-ent/unstyled-ui
 
