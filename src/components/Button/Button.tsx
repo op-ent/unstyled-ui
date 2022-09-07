@@ -14,11 +14,10 @@ export const Button: ButtonComponent = forwardRef(
         ref?: PolymorphicRef<C>
     ) => {
         // 1. Initialization
-        const {
-            styles: { base, variants, sizes },
-        } = useTheme().button
-        const defaultProps = useTheme().button
-            .defaultProps as DefaultButtonTheme['defaultProps']
+        const theme = useTheme().button
+        const { base, variants, sizes } = theme.styles
+        const defaultProps =
+            theme.defaultProps as DefaultButtonTheme['defaultProps']
         const props = { ...defaultProps, ..._ }
 
         // 2. Props

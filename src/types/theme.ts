@@ -1,9 +1,11 @@
-import { ButtonTheme } from '../components'
+import { MarkOptional } from 'ts-essentials'
+import { ButtonGroupTheme, ButtonTheme } from '../components'
 import { UUIColor, DefaultProps } from './base'
 import { DeepOverride } from './utils'
 
 export type Theme = {
     button: ButtonTheme
+    buttonGroup: ButtonGroupTheme
 }
 
 /**
@@ -61,6 +63,15 @@ export interface ComponentTheme<
     S extends string,
     V extends string
 > {
-    defaultProps?: Props & { as?: React.ElementType }
+    defaultProps: Props & { as?: React.ElementType }
     styles: Styles
+}
+
+export type DefaultComponentTheme<
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    T extends ComponentTheme<any, any, any, any>,
+    O extends keyof Required<T>['defaultProps'] = ''
+> = {
+    defaultProps: MarkOptional<Required<Required<T>['defaultProps']>, O>
+    styles: T['styles']
 }

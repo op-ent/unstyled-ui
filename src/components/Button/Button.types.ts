@@ -1,8 +1,8 @@
-import { MarkOptional } from 'ts-essentials'
 import {
     ComponentProps,
     ComponentStyles,
     ComponentTheme,
+    DefaultComponentTheme,
     UUIThemeConfig,
 } from '../../types'
 import type { UUIColor, DefaultProps } from '../../types/base'
@@ -42,15 +42,6 @@ export type ButtonTheme = ComponentTheme<
     UUIButtonSize,
     UUIButtonVariant
 >
-
-export type DefaultComponentTheme<
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    T extends ComponentTheme<any, any, any, any>,
-    O extends keyof Required<T>['defaultProps']
-> = {
-    defaultProps: MarkOptional<Required<Required<T>['defaultProps']>, O>
-    styles: T['styles']
-}
 
 export type DefaultButtonTheme = DefaultComponentTheme<
     ButtonTheme,
