@@ -3,7 +3,7 @@ module.exports = {
     core: {
         builder: '@storybook/builder-vite',
     },
-    stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx)'],
+    stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)'],
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
@@ -16,4 +16,5 @@ module.exports = {
     async viteFinal(config, {}) {
         return config
     },
+    staticDirs: ['./public'],
 }

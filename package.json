@@ -49,6 +49,7 @@
         "react": ">=16"
     },
     "devDependencies": {
+        "@storybook/addon-docs": "^6.5.10",
         "@storybook/addon-essentials": "^6.5.10",
         "@storybook/addon-info": "^5.3.21",
         "@storybook/addon-links": "^6.5.10",

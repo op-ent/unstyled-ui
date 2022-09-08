@@ -1,50 +1,82 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
-import { Button, ThemeProvider, ButtonProps } from '../src'
+import { Button, ThemeProvider, ButtonProps, ComponentProps } from '../src'
+import { defineStory } from './utils'
 
-const meta: Meta = {
-    title: 'Welcome',
-    component: Button,
-    argTypes: {
-        children: {
-            control: {
-                type: 'text',
+type Props = ComponentProps<'button', ButtonProps>
+
+const { meta, createStory } = defineStory<Props>(
+    Button,
+    {
+        title: 'Form/Button',
+        argTypes: {
+            leftIcon: {
+                control: {
+                    disable: true,
+                },
+            },
+            rightIcon: {
+                control: {
+                    disable: true,
+                },
+            },
+            loader: {
+                control: {
+                    disable: true,
+                },
+            },
+            loaderPlacement: {
+                control: {
+                    type: 'inline-radio',
+                },
             },
         },
+        args: {
+            children: 'Button',
+            block: false,
+            disabled: false,
+            loading: false,
+            loaderPlacement: 'left',
+        },
     },
-    parameters: {
-        controls: { expanded: true },
-    },
-}
+    (args) => (
+        <ThemeProvider>
+            <Button {...args} />
+        </ThemeProvider>
+    )
+)
 
 export default meta
 
-const Template: Story<ButtonProps> = (args) => (
-    <ThemeProvider
-        value={{
-            button: {
-                defaultProps: {
-                    color: 'primary',
-                    variant: 'solid',
-                },
-                styles: {
-                    variants: {
-                        solid: {
-                            primary: 'a',
-                        },
-                    },
-                },
-            },
-        }}
-    >
-        <Button {...args} />
-    </ThemeProvider>
-)
+export const Default = createStory({})
 
-// By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
-// https://storybook.js.org/docs/react/workflows/unit-testing
-export const Default = Template.bind({})
+export const Disabled = createStory({
+    disabled: true,
+})
 
-Default.args = {
-    children: 'Button',
-}
+export const Block = createStory({
+    block: true,
+})
+
+export const Loading = createStory({
+    loading: true,
+})
+
+export const LoadingWithText = createStory({
+    loading: true,
+    loadingText: 'Loading',
+})
+
+export const CustomLoader = createStory({
+    loading: true,
+    loader: <div>Loading...</div>,
+})
+
+export const CustomLoaderPlacement = createStory({
+    loading: true,
+    loader: <div>Loading...</div>,
+    loaderPlacement: 'right',
+})
+
+export const Untyled = createStory({
+    unstyled: true,
+})
