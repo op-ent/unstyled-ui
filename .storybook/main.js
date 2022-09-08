@@ -1,3 +1,5 @@
+const DEPLOY_PREFIX = '/unstyled-ui/'
+
 /** @type {import('@storybook/builder-vite').StorybookViteConfig} */
 module.exports = {
     core: {
@@ -13,7 +15,10 @@ module.exports = {
     typescript: {
         check: true, // type-check stories during Storybook build
     },
-    async viteFinal(config, {}) {
+    async viteFinal(config, { configType }) {
+        if (configType === 'PRODUCTION') {
+            config.base = DEPLOY_PREFIX
+        }
         return config
     },
     staticDirs: ['./public'],
