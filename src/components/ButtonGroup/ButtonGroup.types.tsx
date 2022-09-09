@@ -13,7 +13,7 @@ import {
 } from '../Button/Button.types'
 
 export interface ButtonGroupProps extends DefaultProps {
-    children?: React.ReactNode[]
+    children?: React.ReactNode
     buttonProps?: ButtonProps
 }
 
