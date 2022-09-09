@@ -50,7 +50,7 @@ export const ButtonGroup: ButtonGroupComponent = forwardRef(
         const Component = as as React.ElementType
         return (
             <Component ref={ref} className={classes} {...attrs}>
-                {children?.map((child) => {
+                {React.Children.map(children, (child) => {
                     if (!React.isValidElement(child)) {
                         return child
                     }
