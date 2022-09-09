@@ -77,6 +77,6 @@ export const CustomLoaderPlacement = createStory({
     loaderPlacement: 'right',
 })
 
-export const Untyled = createStory({
+export const Unstyled = createStory({
     unstyled: true,
 })
