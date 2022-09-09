@@ -39,6 +39,7 @@ export function defineMeta<P>(
     component,
     meta: Meta<P>
 ): ComponentMeta<typeof component> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return defu(meta, DEFAULT_META, { component }) as any
 }
 
