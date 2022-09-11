@@ -9,6 +9,9 @@ import {
     DefaultButtonGroupTheme,
 } from './ButtonGroup.types'
 
+/**
+ * ButtonGroups are used to group buttons together.
+ */
 export const ButtonGroup: ButtonGroupComponent = forwardRef(
     <C extends React.ElementType = 'span'>(
         _: ComponentProps<C, ButtonGroupProps>,

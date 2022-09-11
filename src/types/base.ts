@@ -6,5 +6,8 @@ import { UUIThemeConfig } from './theme'
 export type UUIColor = UUIThemeConfig['global']['colors']
 
 export type DefaultProps = {
+    /**
+     * Disables any applied styles from global configuration.
+     */
     unstyled?: boolean
 }

@@ -8,6 +8,9 @@ import { ComponentProps, PolymorphicRef } from '../../types/polymorphic'
 import { useTheme } from '../../theme'
 import { generateClassName } from '../../utils/generate-class-name'
 
+/**
+ * Buttons are used primarily for actions. Depending on its variant, its value varies.
+ */
 export const Button: ButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(
         _: ComponentProps<C, ButtonProps>,

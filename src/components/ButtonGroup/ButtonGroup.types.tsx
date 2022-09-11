@@ -13,7 +13,11 @@ import {
 } from '../Button/Button.types'
 
 export interface ButtonGroupProps extends DefaultProps {
-    children?: React.ReactNode
+    /**
+     * The props to pass to every button in the group.
+     * This will be merged with the props passed to each button.
+     * @default DEFAULT_BUTTON_THEME.defaultProps
+     */
     buttonProps?: ButtonProps
 }
 
@@ -26,10 +30,7 @@ export type ButtonGroupTheme = ComponentTheme<
     UUIButtonVariant
 >
 
-export type DefaultButtonGroupTheme = DefaultComponentTheme<
-    ButtonGroupTheme,
-    'children'
->
+export type DefaultButtonGroupTheme = DefaultComponentTheme<ButtonGroupTheme>
 
 export type ButtonGroupComponent = <C extends React.ElementType = 'span'>(
     props: ComponentProps<C, ButtonGroupProps>
