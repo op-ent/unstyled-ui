@@ -31,8 +31,10 @@ export const ButtonGroup: ButtonGroupComponent = forwardRef(
             type = as === 'button' ? as : undefined,
             ...rest
         } = props
-        const { variant, size, color } =
-            buttonProps as DefaultButtonTheme['defaultProps']
+        const { variant, size, color } = {
+            ...defaultProps.buttonProps,
+            ...buttonProps,
+        } as DefaultButtonTheme['defaultProps']
 
         // 3. Styles
         const buttonGroupBase = base?.initial
