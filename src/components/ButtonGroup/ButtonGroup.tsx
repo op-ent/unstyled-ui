@@ -28,7 +28,7 @@ export const ButtonGroup: ButtonGroupComponent = forwardRef(
             buttonProps,
             children,
             className,
-            type = as === 'button' ? as : undefined,
+            type,
             ...rest
         } = props
         const { variant, size, color } = {
