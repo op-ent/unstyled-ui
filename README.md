@@ -11,6 +11,20 @@
 
 `@op-ent/unstyled-ui` is an headless react library.
 
+## Motivation
+
+When it comes to components libaries, there are two main approaches:
+
+-   **Styled components**: The library provides a set of components with a default style. The user can override the style by providing a custom class or style. Examples of such approach are [Bootstrap](https://getbootstrap.com/) and [Material UI](https://material-ui.com/). Those libraries offer customization options, but they are limited and require a lot of work to achieve a custom look and feel. In most cases, it feels like fighting against the library (using `!important` in CSS for example). Using these libraries will result in a library style, not your brand style.
+-   **Headless (unstyled) components**: The library provides a set of components without any style but fully functional and accessible. The user is responsible for providing the style. Examples of such approach are [Headless UI](https://headlessui.com/), [Radix Primitives](https://www.radix-ui.com/) or even specialized libraries like [React table](https://tanstack.com/table). It solves some of the problems raised by the use of libraries in the first approach. On the other hand, it requires a compositional implementation (i.e. wrappers) for each project, and it is not possible to style globally, like in a config file.
+
+So here comes `unstyled-ui`, whose purpose is to conciliate both approaches :
+
+-   Use only headless components
+-   Do not recreate components libraries for each project, since `unstyled-ui` is a kind of interface
+-   Provide all components of a design system. For example, Headless UI provides only a few specific components, but not buttons which is a classic component but is never developed in headless libraries
+-   Be able to configure the whole theme at the global level. It's easier because it allows to centralize everything, to share between different projects and to avoid composition problems. Moreover, no decision is taken (about colors for example), it's up to the designers to define them. For instance, the `color` prop is only of type `string` by default, but can be changed via TypeScript module augmentation to `'primary' | 'secondary'`.
+
 ## Usage
 
 Install package:
@@ -44,7 +58,7 @@ const { Button } = require('@op-ent/unstyled-ui')
 > -   Names may change in the future.
 
 -   [ ] Button _(WIP)_
--   [ ] ButtonGroup
+-   [ ] ButtonGroup _(WIP)_
 -   [ ] Dropdown
 -   [ ] Select
 -   [ ] Combobox
