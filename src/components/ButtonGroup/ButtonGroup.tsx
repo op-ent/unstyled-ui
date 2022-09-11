@@ -10,7 +10,7 @@ import {
 } from './ButtonGroup.types'
 
 export const ButtonGroup: ButtonGroupComponent = forwardRef(
-    <C extends React.ElementType = 'button'>(
+    <C extends React.ElementType = 'span'>(
         _: ComponentProps<C, ButtonGroupProps>,
         ref?: PolymorphicRef<C>
     ) => {

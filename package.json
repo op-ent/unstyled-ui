@@ -41,7 +41,7 @@
         "prettier:write": "prettier -w .",
         "prepare": "yarn build",
         "size": "size-limit",
-        "storybook": "start-storybook -p 6006",
+        "storybook": "start-storybook -p 6006 --no-open",
         "storybook:build": "build-storybook",
         "npm:publish": "np"
     },

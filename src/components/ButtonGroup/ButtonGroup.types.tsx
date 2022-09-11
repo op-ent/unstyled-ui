@@ -31,6 +31,6 @@ export type DefaultButtonGroupTheme = DefaultComponentTheme<
     'children'
 >
 
-export type ButtonGroupComponent = <C extends React.ElementType = 'button'>(
+export type ButtonGroupComponent = <C extends React.ElementType = 'span'>(
     props: ComponentProps<C, ButtonGroupProps>
 ) => React.ReactElement | null

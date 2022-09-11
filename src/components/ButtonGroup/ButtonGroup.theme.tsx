@@ -3,7 +3,7 @@ import { DefaultButtonGroupTheme } from './ButtonGroup.types'
 
 export const DEFAULT_BUTTON_GROUP_THEME: DefaultButtonGroupTheme = {
     defaultProps: {
-        as: 'div',
+        as: 'span',
         unstyled: false,
         buttonProps: DEFAULT_BUTTON_THEME.defaultProps,
     },
