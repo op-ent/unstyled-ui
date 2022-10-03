@@ -63,11 +63,16 @@ export const Button: ButtonComponent = forwardRef(
         const childrenSpan = (
             <span style={{ opacity: loading ? 0 : 100 }}>{children}</span>
         )
+        const loadingSpan = (
+            <span style={{ opacity: loading ? 100 : 0 }}>{loadingText}</span>
+        )
         return (
             <Component ref={ref} className={classes} {...attrs}>
                 {loading && loaderPlacement === 'left' && loader}
                 {leftIcon}
-                {loading ? loadingText || childrenSpan : childrenSpan}
+                {loading
+                    ? (loadingText ? loadingSpan : undefined) || childrenSpan
+                    : childrenSpan}
                 {rightIcon}
                 {loading && loaderPlacement === 'right' && loader}
             </Component>

@@ -9,7 +9,15 @@ module.exports = {
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
-        'storybook-dark-mode',
+        '@storybook/addon-postcss',
+        {
+            name: 'storybook-dark-mode',
+            options: {
+                postcssLoaderOptions: {
+                    implementation: require('postcss'),
+                },
+            },
+        },
     ],
     // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
     typescript: {
