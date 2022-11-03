@@ -93,6 +93,8 @@
         "vitest": "^0.19.1"
     },
     "dependencies": {
+        "@zag-js/accordion": "^0.2.0",
+        "@zag-js/react": "^0.2.0",
         "clsx": "^1.2.1",
         "defu": "^6.0.0"
     }
