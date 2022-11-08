@@ -1,5 +1,3 @@
-'use client'
-
 import React, { forwardRef, useId } from 'react'
 import * as accordion from '@zag-js/accordion'
 import type { Context } from '@zag-js/accordion'
