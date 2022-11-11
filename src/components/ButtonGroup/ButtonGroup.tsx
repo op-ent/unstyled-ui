@@ -1,70 +1,26 @@
 import React, { forwardRef } from 'react'
-import { useTheme } from '../../theme'
-import { ComponentProps, PolymorphicRef } from '../../types'
-import { generateClassName } from '../../utils'
-import { DefaultButtonTheme } from '../Button/Button.types'
-import {
-    ButtonGroupComponent,
-    ButtonGroupProps,
-    DefaultButtonGroupTheme,
-} from './ButtonGroup.types'
+import { useComponentConfig, cloneComponentWithProps } from '../..'
+import { ButtonGroupComponent, ButtonGroupProps } from './ButtonGroup.types'
 
 /**
  * ButtonGroups are used to group buttons together.
  */
-export const ButtonGroup: ButtonGroupComponent = forwardRef(
-    <C extends React.ElementType = 'span'>(
-        _: ComponentProps<C, ButtonGroupProps>,
-        ref?: PolymorphicRef<C>
-    ) => {
-        // 1. Initialization
-        const theme = useTheme().buttonGroup
-        const { base, variants, sizes } = theme.styles
-        const defaultProps =
-            theme.defaultProps as DefaultButtonGroupTheme['defaultProps']
-        const props = { ...defaultProps, ..._ }
+export const ButtonGroup: ButtonGroupComponent = forwardRef<
+    HTMLSpanElement,
+    ButtonGroupProps
+>((props, ref) => {
+    const { mergeDefaults, getCustomProps, getStyleAttrs } =
+        useComponentConfig('buttonGroup')
+    const mergedProps = mergeDefaults(props)
+    const { children, buttonProps, ...rest } = mergedProps
+    const customProps = getCustomProps(mergedProps)
+    const styleAttrs = getStyleAttrs({ ...customProps })
 
-        // 2. Props
-        const {
-            as,
-            unstyled,
-            buttonProps,
-            children,
-            className,
-            type,
-            ...rest
-        } = props
-        const { variant, size, color } = {
-            ...defaultProps.buttonProps,
-            ...buttonProps,
-        } as DefaultButtonTheme['defaultProps']
-
-        // 3. Styles
-        const buttonGroupBase = base?.initial
-        const buttonGroupVariant = variants?.[variant]?.[color]
-        const buttonGroupSize = sizes?.[size]
-        const classes = generateClassName(
-            className,
-            buttonGroupBase,
-            buttonGroupVariant,
-            buttonGroupSize
-        )(unstyled)
-
-        // 4. Render
-        const attrs = { ...rest, type }
-        const Component = as as React.ElementType
-        return (
-            <Component ref={ref} className={classes} {...attrs}>
-                {React.Children.map(children, (child) => {
-                    if (!React.isValidElement(child)) {
-                        return child
-                    }
-                    return React.cloneElement(child, {
-                        ...buttonProps,
-                        ...child.props,
-                    })
-                })}
-            </Component>
-        )
-    }
-)
+    return (
+        <span ref={ref} data-part="root" {...styleAttrs} {...rest}>
+            {React.Children.map(children as never, (child) =>
+                cloneComponentWithProps(child, buttonProps || {})
+            )}
+        </span>
+    )
+})

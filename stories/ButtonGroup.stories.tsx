@@ -1,64 +1,69 @@
+import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 import {
-    Button,
     ButtonGroup,
+    ConfigProvider,
     ButtonGroupProps,
     ComponentProps,
-    ThemeProvider,
+    Button,
 } from '../src'
-import { defineStory } from './utils'
+import { defaultArgTypes, parameters } from './utils'
 
-type Props = ComponentProps<'div', ButtonGroupProps>
+type Props = ComponentProps<'button', ButtonGroupProps>
 
-const { meta, createStory } = defineStory<Props>(
-    ButtonGroup,
-    {
-        title: 'Form/ButtonGroup',
-        argTypes: {
-            children: {
-                control: {
-                    disable: true,
-                },
+export default {
+    component: ButtonGroup,
+    parameters,
+    argTypes: {
+        leftIcon: {
+            control: {
+                disable: true,
             },
         },
-        args: {
-            children: [
-                <Button key="0">Button</Button>,
-                <Button key="1">Button</Button>,
-                <Button key="2">Button</Button>,
-            ],
+        rightIcon: {
+            control: {
+                disable: true,
+            },
+        },
+        ...defaultArgTypes,
+    },
+    args: {
+        children: [
+            <Button key="0">Button</Button>,
+            <Button key="1">Button</Button>,
+            <Button key="2">Button</Button>,
+        ],
+        disabled: false,
+        loading: false,
+    },
+    render: (args) => (
+        <ConfigProvider>
+            <ButtonGroup {...args} />
+        </ConfigProvider>
+    ),
+} as Meta<Props>
+
+export const Default: StoryObj<Props> = {}
+
+export const WithDefaultProps: StoryObj<Props> = {
+    args: {
+        buttonProps: {
+            disabled: true,
         },
     },
-    (args) => (
-        <ThemeProvider>
-            <ButtonGroup {...args} />
-        </ThemeProvider>
-    )
-)
+}
 
-export default meta
-
-export const Default = createStory({})
-
-export const WithDefaultProps = createStory({
-    buttonProps: {
-        disabled: true,
+export const OverridingDefaultProps: StoryObj<Props> = {
+    args: {
+        buttonProps: {
+            disabled: true,
+        },
+        children: [
+            <Button key="0" disabled={false}>
+                Button
+            </Button>,
+            <Button key="1">Button</Button>,
+            <Button key="2">Button</Button>,
+        ],
     },
-})
-
-export const OverridingDefaultProps = createStory({
-    buttonProps: {
-        disabled: true,
-    },
-    children: [
-        <Button key="0" disabled={false}>
-            Button
-        </Button>,
-        <Button key="1">Button</Button>,
-        <Button key="2">Button</Button>,
-    ],
-})
-
-export const Unstyled = createStory({
-    unstyled: true,
-})
+}

@@ -1,2 +1,3 @@
-export { generateClassName } from './generate-class-name'
-export { createTheme } from './create-theme'
+export * from './create-config'
+export * from './kebabize'
+export * from './clone-component-with-props'

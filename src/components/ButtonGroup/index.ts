@@ -1,3 +1,3 @@
-export { ButtonGroup } from './ButtonGroup'
+export * from './ButtonGroup'
+export * from './ButtonGroup.config'
 export * from './ButtonGroup.types'
-export { DEFAULT_BUTTON_GROUP_THEME } from './ButtonGroup.theme'

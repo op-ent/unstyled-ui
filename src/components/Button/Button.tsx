@@ -1,80 +1,56 @@
 import React, { forwardRef } from 'react'
-import {
-    ButtonComponent,
-    ButtonProps,
-    DefaultButtonTheme,
-} from './Button.types'
-import { ComponentProps, PolymorphicRef } from '../../types/polymorphic'
-import { useTheme } from '../../theme'
-import { generateClassName } from '../../utils/generate-class-name'
+import { useComponentConfig, ComponentProps, PolymorphicRef } from '../..'
+import { ButtonComponent, ButtonProps } from './Button.types'
 
-/**
- * Buttons are used primarily for actions. Depending on its variant, its value varies.
- */
 export const Button: ButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(
-        _: ComponentProps<C, ButtonProps>,
+        props: ComponentProps<C, ButtonProps>,
         ref?: PolymorphicRef<C>
     ) => {
-        // 1. Initialization
-        const theme = useTheme().button
-        const { base, variants, sizes } = theme.styles
-        const defaultProps =
-            theme.defaultProps as DefaultButtonTheme['defaultProps']
-        const props = { ...defaultProps, ..._ }
-
-        // 2. Props
+        const { mergeDefaults, getCustomProps, getStyleAttrs } =
+            useComponentConfig('button')
+        const mergedProps = mergeDefaults(props)
         const {
+            children,
             as,
-            variant,
-            size,
-            color,
-            block,
-            disabled,
-            loading,
-            unstyled,
             leftIcon,
             rightIcon,
-            loader,
-            loadingText,
-            loaderPlacement,
-            children,
-            className,
-            type = as === 'button' ? as : undefined,
+            loadingOptions,
+            loading,
+            disabled,
+            type,
             ...rest
-        } = props
+        } = mergedProps
+        const customProps = getCustomProps(mergedProps)
+        const styleAttrs = getStyleAttrs({ ...customProps, disabled, loading })
 
-        // 3. styles
-        const buttonBase = base?.initial
-        const buttonBlock = block && base?.block
-        const buttonVariant = variants?.[variant]?.[color]
-        const buttonSize = sizes?.[size]
-        const classes = generateClassName(
-            className,
-            buttonBase,
-            buttonBlock,
-            buttonVariant,
-            buttonSize
-        )(unstyled)
-
-        // 4. Render
-        const attrs = { ...rest, disabled: disabled || loading, type }
         const Component = as as React.ElementType
-        const childrenSpan = (
-            <span style={{ opacity: loading ? 0 : 100 }}>{children}</span>
+        const _loader = (
+            <span data-part="loader" data-placement={loadingOptions?.placement}>
+                {loadingOptions?.loader}
+            </span>
         )
-        const loadingSpan = (
-            <span style={{ opacity: loading ? 100 : 0 }}>{loadingText}</span>
+        const _leftIcon = <span data-part="left-icon">{leftIcon}</span>
+        const _rightIcon = <span data-part="right-icon">{rightIcon}</span>
+        const _children = <span data-part="children">{children}</span>
+        const _loadingText = (
+            <span data-part="loading-text">{loadingOptions?.text}</span>
         )
+
         return (
-            <Component ref={ref} className={classes} {...attrs}>
-                {loading && loaderPlacement === 'left' && loader}
-                {leftIcon}
-                {loading
-                    ? (loadingText ? loadingSpan : undefined) || childrenSpan
-                    : childrenSpan}
-                {rightIcon}
-                {loading && loaderPlacement === 'right' && loader}
+            <Component
+                ref={ref}
+                data-part="root"
+                disabled={disabled || loading}
+                type={type || (as === 'button' ? as : undefined)}
+                {...styleAttrs}
+                {...rest}
+            >
+                {loading && loadingOptions?.placement === 'left' && _loader}
+                {_leftIcon}
+                {loading && loadingOptions?.text ? _loadingText : _children}
+                {_rightIcon}
+                {loading && loadingOptions?.placement === 'right' && _loader}
             </Component>
         )
     }

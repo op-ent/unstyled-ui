@@ -9,3 +9,8 @@ export type DeepOverride<T1, T2> = {
             : T2[P]
         : T1[P]
 }
+
+export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
+    U[keyof U]
+
+export type ExcludeEmpty<T> = T extends AtLeastOne<T> ? T : never

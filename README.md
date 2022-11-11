@@ -50,6 +50,25 @@ import { Button } from '@op-ent/unstyled-ui'
 const { Button } = require('@op-ent/unstyled-ui')
 ```
 
+### Styling
+
+Using CSS data parts:
+
+```css
+.uui-button[data-part='root'] {
+}
+.uui-button[data-part='loader'] {
+}
+.uui-button[data-part='left-icon'] {
+}
+.uui-button[data-part='right-icon'] {
+}
+.uui-button[data-part='children'] {
+}
+.uui-button[data-part='loading-text'] {
+}
+```
+
 ## Planned components & features
 
 > WARNING: This is a work in progress.
@@ -59,21 +78,14 @@ const { Button } = require('@op-ent/unstyled-ui')
 
 -   [ ] Button _(WIP)_
 -   [ ] ButtonGroup _(WIP)_
--   [ ] Dropdown
--   [ ] Select
--   [ ] Combobox
--   [ ] Switch
--   [ ] Accordion
+-   [ ] Input
+-   [ ] Form
+-   [ ] IconButton
+-   [ ] Heading
+-   [ ] Paragraph
+-   [ ] Badge
 -   [ ] Modal
--   [ ] Popover
--   [ ] RadioGroup
--   [ ] Tabs
--   [ ] Checkbox
--   [ ] ContextMenu (Radix)
--   [ ] Progress
--   [ ] Slider
--   [ ] Toast & Notifications management (React Hot Toast)
--   [ ] Tooltip
+-   [ ] Switch
 
 ## API Reference
 

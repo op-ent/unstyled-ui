@@ -1,9 +1,9 @@
 const DEPLOY_PREFIX = '/unstyled-ui/'
 
-/** @type {import('@storybook/builder-vite').StorybookViteConfig} */
+/** @type {import('@storybook/react-vite').StorybookConfig} */
 module.exports = {
-    core: {
-        builder: '@storybook/builder-vite',
+    framework: {
+        name: '@storybook/react-vite',
     },
     stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)'],
     addons: [
