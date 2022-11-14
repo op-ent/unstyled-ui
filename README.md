@@ -119,7 +119,7 @@ Using CSS data parts:
 
 -   [ ] Button _(WIP)_
 -   [ ] ButtonGroup _(WIP)_
--   [ ] IconButton
+-   [ ] IconButton _(WIP)_
 -   [ ] Badge
 -   [ ] Heading
 -   [ ] Paragraph
