@@ -4,6 +4,7 @@ import {
     DEFAULT_BUTTON_PROPS,
     DEFAULT_BUTTON_GROUP_PROPS,
     kebabize,
+    DEFAULT_ICON_BUTTON_PROPS,
 } from '..'
 
 export const defaultConfig: Config = {
@@ -21,6 +22,10 @@ export const defaultConfig: Config = {
         },
         buttonGroup: {
             defaultProps: DEFAULT_BUTTON_GROUP_PROPS,
+            customProps: {},
+        },
+        iconButton: {
+            defaultProps: DEFAULT_ICON_BUTTON_PROPS,
             customProps: {},
         },
     },

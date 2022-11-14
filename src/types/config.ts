@@ -1,5 +1,10 @@
 import { DeepPartial } from 'ts-essentials'
-import { AccordionProps, ButtonProps, ButtonGroupProps } from '..'
+import {
+    AccordionProps,
+    ButtonProps,
+    ButtonGroupProps,
+    IconButtonProps,
+} from '..'
 
 export type ConfigOverride = DeepPartial<Config>
 
@@ -38,6 +43,10 @@ type _ComponentsConfig = {
     buttonGroup: {
         defaultProps: ButtonGroupProps
         customProps: CustomProps<CustomizableComponentsProps['buttonGroup']>
+    }
+    iconButton: {
+        defaultProps: IconButtonProps
+        customProps: CustomProps<CustomizableComponentsProps['iconButton']>
     }
 }
 
