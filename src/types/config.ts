@@ -1,6 +1,8 @@
 import { DeepPartial } from 'ts-essentials'
 import { AccordionProps, ButtonProps, ButtonGroupProps } from '..'
 
+export type ConfigOverride = DeepPartial<Config>
+
 export type Config = {
     /**
      * Used in {identifierTemplate}

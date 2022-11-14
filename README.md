@@ -40,7 +40,7 @@ yarn install @op-ent/unstyled-ui
 pnpm install @op-ent/unstyled-ui
 ```
 
-Import:
+Import example:
 
 ```js
 // ESM
@@ -48,6 +48,47 @@ import { Button } from '@op-ent/unstyled-ui'
 
 // CommonJS
 const { Button } = require('@op-ent/unstyled-ui')
+```
+
+### Create a config
+
+```ts
+import { ConfigOverride } from '@op-ent/unstyled-ui'
+
+declare module '@op-ent/unstyled-ui' {
+    interface CustomizableComponentsPropsOverride {
+        button: {
+            variant: 'primary' | 'secondary'
+        }
+    }
+}
+
+const config: ConfigOverride = {
+    components: {
+        button: {
+            defaultProps: {
+                variant: 'secondary',
+            },
+            customProps: {
+                variant: null,
+            },
+        },
+    },
+}
+```
+
+### Use the config
+
+```tsx
+import { ConfigProvider } from '@op-ent/unstyled-ui'
+
+function App() {
+    return (
+        <ConfigProvider value={config}>
+            <Button variant="primary">Hello</Button>
+        </ConfigProvider>
+    )
+}
 ```
 
 ### Styling
@@ -78,27 +119,17 @@ Using CSS data parts:
 
 -   [ ] Button _(WIP)_
 -   [ ] ButtonGroup _(WIP)_
--   [ ] Input
--   [ ] Form
 -   [ ] IconButton
+-   [ ] Badge
 -   [ ] Heading
 -   [ ] Paragraph
--   [ ] Badge
+-   [ ] Input
 -   [ ] Modal
 -   [ ] Switch
 
 ## API Reference
 
-### Utilities
-
-#### `generateClassName` (internal)
-
-Based on `clsx`, it generates a class name based on a list of class names, the default className prop and the `unstyled` condition.
-
-```ts
-const classes = generateClassName('foo', 'bar')(true) // "foo bar"
-const classes = generateClassName('foo', 'bar')(false) // "foo"
-```
+TBD
 
 ## 💻 Development
 
