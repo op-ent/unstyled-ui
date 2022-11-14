@@ -1,0 +1,4 @@
+import"./index.68c07f29.js";import{j as t,a as c,F as p}from"./jsx-runtime.1f555e07.js";import{u as a,L as i}from"./DocsRenderer.68a0e341.js";import"./iframe.8e72f004.js";import"./index.18c66181.js";import"./index.1ed125ca.js";function m(n={}){const{wrapper:o}=Object.assign({},a(),n.components);return o?t(o,Object.assign({},n,{children:t(r,{})})):r();function r(){const s=Object.assign({h1:"h1",p:"p"},a(),n.components);return c(p,{children:[t(i,{title:"Introduction"}),`
+`,t(s.h1,{children:"Introduction"}),`
+`,t(s.p,{children:"TBD"})]})}}const d=()=>{throw new Error("Docs-only story")};d.parameters={docsOnly:!0};const e={title:"Introduction",tags:["mdx"],includeStories:["__page"]};e.parameters=e.parameters||{};e.parameters.docs={...e.parameters.docs||{},page:m};const x=["__page"];export{x as __namedExportsOrder,d as __page,e as default};
+//# sourceMappingURL=Introduction.stories.8e8f25a4.js.map
