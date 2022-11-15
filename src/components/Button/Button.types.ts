@@ -6,7 +6,7 @@ export type ButtonCustomizableProps = CustomizableComponentsProps['button']
 
 export type ButtonLoadingOptions = {
     loader?: React.ReactElement
-    text?: string
+    text?: string | false
     placement?: 'left' | 'right'
 }
 

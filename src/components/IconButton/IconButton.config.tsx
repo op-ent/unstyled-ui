@@ -1,5 +1,12 @@
-import { DEFAULT_BUTTON_PROPS } from '..'
+import React from 'react'
 import { DefaultIconButtonProps } from './IconButton.types'
 
-export const DEFAULT_ICON_BUTTON_PROPS: DefaultIconButtonProps =
-    DEFAULT_BUTTON_PROPS
+export const DEFAULT_ICON_BUTTON_PROPS: DefaultIconButtonProps = {
+    as: 'button',
+    disabled: false,
+    loading: false,
+    loadingOptions: {
+        loader: <div>....</div>,
+        text: false,
+    },
+}

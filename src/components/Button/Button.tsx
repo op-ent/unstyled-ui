@@ -30,8 +30,16 @@ export const Button: ButtonComponent = forwardRef(
                 {loadingOptions?.loader}
             </span>
         )
-        const _leftIcon = <span data-part="left-icon">{leftIcon}</span>
-        const _rightIcon = <span data-part="right-icon">{rightIcon}</span>
+        const _leftIcon = (
+            <span data-part="left-icon" aria-hidden>
+                {leftIcon}
+            </span>
+        )
+        const _rightIcon = (
+            <span data-part="right-icon" aria-hidden>
+                {rightIcon}
+            </span>
+        )
         const _children = <span data-part="children">{children}</span>
         const _loadingText = (
             <span data-part="loading-text">{loadingOptions?.text}</span>
@@ -48,7 +56,11 @@ export const Button: ButtonComponent = forwardRef(
             >
                 {loading && loadingOptions?.placement === 'left' && _loader}
                 {_leftIcon}
-                {loading && loadingOptions?.text ? _loadingText : _children}
+                {loading &&
+                loadingOptions?.text !== false &&
+                loadingOptions?.text
+                    ? _loadingText
+                    : _children}
                 {_rightIcon}
                 {loading && loadingOptions?.placement === 'right' && _loader}
             </Component>

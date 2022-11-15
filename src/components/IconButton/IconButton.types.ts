@@ -5,6 +5,7 @@ import {
     ButtonLoadingOptions,
     ComponentProps,
     ButtonProps,
+    DefaultButtonProps,
 } from '../..'
 
 export type IconButtonCustomizableProps =
@@ -19,11 +20,11 @@ export type BaseButtonProps = Omit<ButtonProps, ButtonOmittedProps> & {
 }
 
 export type IconButtonProps = BaseButtonProps & {
-    icon?: React.ReactElement
+    icon?: React.ReactNode
     'aria-label': string
 } & DeepPartial<IconButtonCustomizableProps>
 
-export type DefaultIconButtonProps = DeepPartial<IconButtonProps>
+export type DefaultIconButtonProps = DefaultButtonProps
 
 export type IconButtonComponent = <C extends React.ElementType = 'button'>(
     props: ComponentProps<C, IconButtonProps>
