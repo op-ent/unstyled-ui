@@ -1,11 +1,9 @@
-import {
-    Config,
-    DEFAULT_ACCORDION_PROPS,
-    DEFAULT_BUTTON_PROPS,
-    DEFAULT_BUTTON_GROUP_PROPS,
-    kebabize,
-    DEFAULT_ICON_BUTTON_PROPS,
-} from '..'
+import { Config } from '../types'
+import { kebabize } from '../utils'
+import { DEFAULT_ACCORDION_PROPS } from '../components/Accordion/Accordion.config'
+import { DEFAULT_BUTTON_PROPS } from '../components/Button/Button.config'
+import { DEFAULT_BUTTON_GROUP_PROPS } from '../components/ButtonGroup/ButtonGroup.config'
+import { DEFAULT_ICON_BUTTON_PROPS } from '../components/IconButton/IconButton.config'
 
 export const defaultConfig: Config = {
     prefix: 'uui',
