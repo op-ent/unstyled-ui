@@ -29,7 +29,13 @@
         "react/require-default-props": "off",
         "jsx-a11y/alt-text": "off",
         "react/display-name": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "disallowTypeAnnotations": false
+            }
+        ]
     },
     "settings": {
         "react": {

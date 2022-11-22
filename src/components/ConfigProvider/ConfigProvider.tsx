@@ -1,6 +1,7 @@
 import defu from 'defu'
 import React from 'react'
-import { defaultConfig, Config, ConfigOverride } from '../..'
+import { defaultConfig } from '../..'
+import type { Config, ConfigOverride } from '../..'
 import { UnstyledUiConfigContext } from './context'
 
 type ConfigProviderProps = {

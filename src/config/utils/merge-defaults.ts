@@ -1,5 +1,6 @@
 import defu from 'defu'
-import { ComponentName, useConfig } from '../..'
+import { useConfig } from '../..'
+import type { ComponentName } from '../..'
 
 export type MergeDefaultsProps<T extends Record<string, unknown>> = {
     name: ComponentName

@@ -1,6 +1,6 @@
 import defu from 'defu'
-import { DeepPartial } from 'ts-essentials'
-import { Config } from '..'
+import type { DeepPartial } from 'ts-essentials'
+import type { Config } from '..'
 
 export function createConfig(config: DeepPartial<Config>) {
     function extendConfig(customConfig: DeepPartial<Config>) {

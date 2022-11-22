@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
-import { useComponentConfig, ComponentProps, PolymorphicRef } from '../..'
-import { ButtonComponent, ButtonProps } from './Button.types'
+import type { ComponentProps, PolymorphicRef } from '../..'
+import { useComponentConfig } from '../..'
+import type { ButtonComponent, ButtonProps } from './Button.types'
 
 export const Button: ButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(

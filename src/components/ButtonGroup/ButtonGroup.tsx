@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react'
 import { useComponentConfig, cloneComponentWithProps } from '../..'
-import { ButtonGroupComponent, ButtonGroupProps } from './ButtonGroup.types'
+import type {
+    ButtonGroupComponent,
+    ButtonGroupProps,
+} from './ButtonGroup.types'
 
 /**
  * ButtonGroups are used to group buttons together.

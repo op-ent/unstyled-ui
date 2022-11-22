@@ -1,5 +1,5 @@
-import { DeepPartial } from 'ts-essentials'
-import {
+import type { DeepPartial } from 'ts-essentials'
+import type {
     AccordionProps,
     ButtonProps,
     ButtonGroupProps,
@@ -31,29 +31,22 @@ export type CustomProps<T extends {}> = (keyof T extends never
 
 export type ComponentName = keyof ComponentsConfig
 
-type _ComponentsConfig = {
+export type ComponentsConfig = {
     accordion: {
-        defaultProps: AccordionProps
+        defaultProps: DeepPartial<AccordionProps>
         customProps: CustomProps<CustomizableComponentsProps['accordion']>
     }
     button: {
-        defaultProps: ButtonProps
+        defaultProps: DeepPartial<ButtonProps>
         customProps: CustomProps<CustomizableComponentsProps['button']>
     }
     buttonGroup: {
-        defaultProps: ButtonGroupProps
+        defaultProps: DeepPartial<ButtonGroupProps>
         customProps: CustomProps<CustomizableComponentsProps['buttonGroup']>
     }
     iconButton: {
-        defaultProps: IconButtonProps
+        defaultProps: DeepPartial<IconButtonProps>
         customProps: CustomProps<CustomizableComponentsProps['iconButton']>
-    }
-}
-
-export type ComponentsConfig = {
-    [P in keyof _ComponentsConfig]: {
-        defaultProps: DeepPartial<_ComponentsConfig[P]['defaultProps']>
-        customProps: _ComponentsConfig[P]['customProps']
     }
 }
 

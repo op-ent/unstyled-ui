@@ -1,6 +1,10 @@
-import React from 'react'
-import { DeepPartial } from 'ts-essentials'
-import { ComponentProps, ButtonProps, CustomizableComponentsProps } from '../..'
+import type React from 'react'
+import type { DeepPartial } from 'ts-essentials'
+import type {
+    ComponentProps,
+    ButtonProps,
+    CustomizableComponentsProps,
+} from '../..'
 
 export type ButtonGroupCustomizableProps =
     CustomizableComponentsProps['buttonGroup']

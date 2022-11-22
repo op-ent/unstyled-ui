@@ -1,7 +1,7 @@
-import React from 'react'
+import type React from 'react'
 import type { Context } from '@zag-js/accordion'
-import { DeepPartial } from 'ts-essentials'
-import { ComponentProps, CustomizableComponentsProps } from '../..'
+import type { DeepPartial } from 'ts-essentials'
+import type { ComponentProps, CustomizableComponentsProps } from '../..'
 
 export type AccordionCustomizableProps =
     CustomizableComponentsProps['accordion']

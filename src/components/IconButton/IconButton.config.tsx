@@ -1,5 +1,5 @@
 import React from 'react'
-import { DefaultIconButtonProps } from './IconButton.types'
+import type { DefaultIconButtonProps } from './IconButton.types'
 
 export const DEFAULT_ICON_BUTTON_PROPS: DefaultIconButtonProps = {
     as: 'button',

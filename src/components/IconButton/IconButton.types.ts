@@ -1,6 +1,6 @@
-import React from 'react'
-import { DeepPartial } from 'ts-essentials'
-import {
+import type React from 'react'
+import type { DeepPartial } from 'ts-essentials'
+import type {
     CustomizableComponentsProps,
     ButtonLoadingOptions,
     ComponentProps,

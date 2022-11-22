@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ComponentName, Config } from '../..'
+import type { ComponentName, Config } from '../..'
 
 export type GetStyleAttrsProps<T extends Record<string, unknown>> = {
     config: Config

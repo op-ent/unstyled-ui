@@ -1,5 +1,5 @@
 import React from 'react'
-import { DefaultButtonProps } from './Button.types'
+import type { DefaultButtonProps } from './Button.types'
 
 export const DEFAULT_BUTTON_PROPS: DefaultButtonProps = {
     as: 'button',

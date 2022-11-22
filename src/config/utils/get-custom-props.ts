@@ -1,4 +1,4 @@
-import {
+import type {
     ComponentName,
     Config,
     CustomizableComponentsProps,

@@ -1,6 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
-import { Button, ConfigProvider, ButtonProps, ComponentProps } from '../src'
+import { Button, ConfigProvider } from '../src'
+import type { ButtonProps, ComponentProps } from '../src'
 import { defaultArgTypes, parameters } from './utils'
 
 type Props = ComponentProps<'button', ButtonProps>

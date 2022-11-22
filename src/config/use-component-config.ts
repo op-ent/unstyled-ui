@@ -1,4 +1,4 @@
-import { ComponentName } from '..'
+import type { ComponentName } from '..'
 import { getStyleAttrs, mergeDefaults, getCustomProps, useConfig } from '.'
 
 export function useComponentConfig(name: ComponentName) {

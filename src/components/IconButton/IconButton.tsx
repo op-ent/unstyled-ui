@@ -1,11 +1,7 @@
 import React, { forwardRef, isValidElement, cloneElement } from 'react'
-import {
-    useComponentConfig,
-    ComponentProps,
-    PolymorphicRef,
-    Button,
-} from '../..'
-import { IconButtonComponent, IconButtonProps } from './IconButton.types'
+import { useComponentConfig, Button } from '../..'
+import type { ComponentProps, PolymorphicRef } from '../..'
+import type { IconButtonComponent, IconButtonProps } from './IconButton.types'
 
 export const IconButton: IconButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(
