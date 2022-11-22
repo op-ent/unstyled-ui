@@ -12,19 +12,19 @@ export const defaultConfig: Config = {
     components: {
         accordion: {
             defaultProps: DEFAULT_ACCORDION_PROPS,
-            customProps: {},
+            customProps: [],
         },
         button: {
             defaultProps: DEFAULT_BUTTON_PROPS,
-            customProps: {},
+            customProps: [],
         },
         buttonGroup: {
             defaultProps: DEFAULT_BUTTON_GROUP_PROPS,
-            customProps: {},
+            customProps: [],
         },
         iconButton: {
             defaultProps: DEFAULT_ICON_BUTTON_PROPS,
-            customProps: {},
+            customProps: [],
         },
     },
 }

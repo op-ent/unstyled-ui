@@ -5,20 +5,25 @@ import {
     ExcludeEmpty,
 } from '../..'
 
-export function getCustomProps<T extends Record<string, unknown>>(
-    name: ComponentName,
-    config: Config,
+export type GetCustomProps<T extends Record<string, unknown>> = {
+    name: ComponentName
+    config: Config
     props: T
-) {
-    const componentCustomProps = config.components[name]?.customProps ?? {}
+}
+
+export function getCustomProps<T extends Record<string, unknown>>({
+    name,
+    config,
+    props,
+}: GetCustomProps<T>) {
+    const keys = config.components[name]?.customProps ?? []
 
     type ValidValue = ExcludeEmpty<CustomizableComponentsProps[typeof name]>
     type ValidKey = keyof ValidValue
 
     const customProps: Partial<Record<ValidKey, unknown>> = {}
-    const keys = Object.keys(componentCustomProps)
     for (const key of keys) {
-        const value = (componentCustomProps as ValidValue)[key as ValidKey]
+        const value = props[key]
         customProps[key as ValidKey] = value
         delete props[key]
     }

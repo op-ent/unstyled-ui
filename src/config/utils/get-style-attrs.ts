@@ -1,13 +1,22 @@
 import clsx from 'clsx'
-import { Config } from '../..'
+import { ComponentName, Config } from '../..'
 
-export function getStyleAttrs<T extends Record<string, unknown>>(
-    config: Config,
-    identifier: string,
-    props: T,
+export type GetStyleAttrsProps<T extends Record<string, unknown>> = {
+    config: Config
+    name: ComponentName
+    identifier: string
+    props: T
     className?: string
-): { className: string; [key: string]: unknown } {
-    const keys = Object.keys(props)
+}
+
+export function getStyleAttrs<T extends Record<string, unknown>>({
+    config,
+    name,
+    identifier,
+    props,
+    className,
+}: GetStyleAttrsProps<T>): { className: string; [key: string]: unknown } {
+    const keys = config.components[name].customProps
     const mergedProps: Record<string, unknown> = { ...props }
     for (const key of keys) {
         const value = (() => {

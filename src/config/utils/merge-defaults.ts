@@ -1,10 +1,15 @@
 import defu from 'defu'
 import { ComponentName, useConfig } from '../..'
 
-export function mergeDefaults<T extends Record<string, unknown>>(
-    name: ComponentName,
+export type MergeDefaultsProps<T extends Record<string, unknown>> = {
+    name: ComponentName
     props: T
-): T {
+}
+
+export function mergeDefaults<T extends Record<string, unknown>>({
+    name,
+    props,
+}: MergeDefaultsProps<T>): T {
     const defaultProps = useConfig().components[name]?.defaultProps
     const mergedProps = defu(props, defaultProps || {}) as T
     return mergedProps

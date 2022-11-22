@@ -12,12 +12,12 @@ export function useComponentConfig(name: ComponentName) {
     return {
         identifier,
         mergeDefaults: <T extends Record<string, unknown>>(props: T) =>
-            mergeDefaults(name, props),
+            mergeDefaults({ name, props }),
         getCustomProps: <T extends Record<string, unknown>>(props: T) =>
-            getCustomProps(name, config, props),
+            getCustomProps({ name, config, props }),
         getStyleAttrs: <T extends Record<string, unknown>>(
             props: T,
             className?: string
-        ) => getStyleAttrs(config, identifier, props, className),
+        ) => getStyleAttrs({ config, name, identifier, props, className }),
     }
 }

@@ -27,7 +27,16 @@ export default {
         loading: false,
     },
     render: (args) => (
-        <ConfigProvider>
+        <ConfigProvider
+            config={{
+                components: {
+                    button: {
+                        defaultProps: { variant: 'solid', size: 'md' },
+                        customProps: ['variant', 'size'],
+                    },
+                },
+            }}
+        >
             <Button {...args} />
         </ConfigProvider>
     ),

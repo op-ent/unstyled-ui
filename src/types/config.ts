@@ -25,9 +25,9 @@ export type Config = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type CustomProps<T extends {}> = {
-    [P in keyof T]: null
-}
+export type CustomProps<T extends {}> = (keyof T extends never
+    ? string
+    : keyof T)[]
 
 export type ComponentName = keyof ComponentsConfig
 
