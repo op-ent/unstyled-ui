@@ -1,0 +1,2 @@
+import{_ as t}from"./iframe.87a5be03.js";const n={docs:{renderer:async()=>{const{DocsRenderer:e}=await t(()=>import("./DocsRenderer.59461cb3.js").then(r=>r.D),["assets/DocsRenderer.59461cb3.js","assets/index.30e83440.js","assets/iframe.87a5be03.js","assets/index.d7d6fd5b.js","assets/index.719b8174.js","assets/jsx-runtime.9ec71f52.js"]);return new e}}};export{n as parameters};
+//# sourceMappingURL=preview.5c6d36ca.js.map
