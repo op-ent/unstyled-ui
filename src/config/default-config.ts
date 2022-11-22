@@ -1,5 +1,5 @@
-import type { Config } from '../'
-import { kebabize } from '../'
+import type { Config } from '../types'
+import { kebabize } from '../utils'
 import { DEFAULT_ACCORDION_PROPS } from '../components/Accordion/Accordion.config'
 import { DEFAULT_BUTTON_PROPS } from '../components/Button/Button.config'
 import { DEFAULT_BUTTON_GROUP_PROPS } from '../components/ButtonGroup/ButtonGroup.config'

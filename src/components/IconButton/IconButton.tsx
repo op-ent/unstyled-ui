@@ -8,12 +8,15 @@ export const IconButton: IconButtonComponent = forwardRef(
         props: ComponentProps<C, IconButtonProps>,
         ref?: PolymorphicRef<C>
     ) => {
-        const { mergeDefaults, getCustomProps, getStyleAttrs } =
-            useComponentConfig('iconButton')
-        const mergedProps = mergeDefaults(props)
-        const { children, icon, 'aria-label': ariaLabel, ...rest } = mergedProps
-        const customProps = getCustomProps(mergedProps)
-        const styleAttrs = getStyleAttrs({ ...customProps })
+        const { splitProps, getStyleAttrs } = useComponentConfig('iconButton')
+        const { filteredProps, customProps } = splitProps(props)
+        const {
+            children,
+            icon,
+            'aria-label': ariaLabel,
+            ...rest
+        } = filteredProps
+        const styleAttrs = getStyleAttrs(customProps)
 
         const element = icon || children
         const _children = isValidElement(element)

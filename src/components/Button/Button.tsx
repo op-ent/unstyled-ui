@@ -8,9 +8,8 @@ export const Button: ButtonComponent = forwardRef(
         props: ComponentProps<C, ButtonProps>,
         ref?: PolymorphicRef<C>
     ) => {
-        const { mergeDefaults, getCustomProps, getStyleAttrs } =
-            useComponentConfig('button')
-        const mergedProps = mergeDefaults(props)
+        const { splitProps, getStyleAttrs } = useComponentConfig('button')
+        const { filteredProps, customProps } = splitProps(props)
         const {
             children,
             as,
@@ -21,8 +20,7 @@ export const Button: ButtonComponent = forwardRef(
             disabled,
             type,
             ...rest
-        } = mergedProps
-        const customProps = getCustomProps(mergedProps)
+        } = filteredProps
         const styleAttrs = getStyleAttrs({ ...customProps, disabled, loading })
 
         const Component = as as React.ElementType

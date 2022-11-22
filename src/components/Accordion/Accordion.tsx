@@ -8,11 +8,9 @@ export const Accordion: AccordionComponent = forwardRef<
     HTMLDivElement,
     AccordionProps
 >((props, ref) => {
-    const { mergeDefaults, getCustomProps, getStyleAttrs } =
-        useComponentConfig('accordion')
-    const mergedProps = mergeDefaults(props)
-    const { data, controls: context, ...rest } = mergedProps
-    const customProps = getCustomProps(mergedProps)
+    const { splitProps, getStyleAttrs } = useComponentConfig('accordion')
+    const { filteredProps, customProps } = splitProps(props)
+    const { data, controls: context, ...rest } = filteredProps
     const styleAttrs = getStyleAttrs(customProps)
 
     const [state, send] = useMachine(accordion.machine({ id: useId() }), {

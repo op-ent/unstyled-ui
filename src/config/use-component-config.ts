@@ -13,8 +13,11 @@ export function useComponentConfig(name: ComponentName) {
         identifier,
         mergeDefaults: <T extends Record<string, unknown>>(props: T) =>
             mergeDefaults({ name, props }),
-        getCustomProps: <T extends Record<string, unknown>>(props: T) =>
-            getCustomProps({ name, config, props }),
+        splitProps: <T extends Record<string, unknown>>(props: T) => {
+            const mergedProps = mergeDefaults({ name, props })
+            const result = getCustomProps({ name, config, props: mergedProps })
+            return { mergedProps, ...result }
+        },
         getStyleAttrs: <T extends Record<string, unknown>>(
             props: T,
             className?: string

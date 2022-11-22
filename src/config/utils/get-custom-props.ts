@@ -31,5 +31,6 @@ export function getCustomProps<T extends Record<string, unknown>>({
         T,
         Exclude<ValidKey, number | symbol>
     >
-    return newCustomProps
+    const filteredProps = props as T
+    return { customProps: newCustomProps, filteredProps }
 }

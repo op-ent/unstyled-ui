@@ -12,12 +12,10 @@ export const ButtonGroup: ButtonGroupComponent = forwardRef<
     HTMLSpanElement,
     ButtonGroupProps
 >((props, ref) => {
-    const { mergeDefaults, getCustomProps, getStyleAttrs } =
-        useComponentConfig('buttonGroup')
-    const mergedProps = mergeDefaults(props)
-    const { children, buttonProps, ...rest } = mergedProps
-    const customProps = getCustomProps(mergedProps)
-    const styleAttrs = getStyleAttrs({ ...customProps })
+    const { splitProps, getStyleAttrs } = useComponentConfig('buttonGroup')
+    const { filteredProps, customProps } = splitProps(props)
+    const { children, buttonProps, ...rest } = filteredProps
+    const styleAttrs = getStyleAttrs(customProps)
 
     return (
         <span ref={ref} data-part="root" {...styleAttrs} {...rest}>
