@@ -42,7 +42,7 @@
         "size": "size-limit",
         "storybook": "storybook dev -p 6006 --no-open",
         "storybook:build": "storybook build",
-        "npm:publish": "np"
+        "npm:publish": "pnpm build && np --no-cleanup"
     },
     "peerDependencies": {
         "react": ">=16"
