@@ -1,5 +1,6 @@
 {
     "yaml.schemas": {
         "https://json.schemastore.org/github-workflow.json": "file:///d%3A/DEV/PROJECTS/op-ent/unstyled-ui/.github/workflows/deploy.yml"
-    }
+    },
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

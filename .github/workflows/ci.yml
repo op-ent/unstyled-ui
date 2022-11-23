@@ -31,12 +31,12 @@ jobs:
               uses: bahmutov/npm-install@v1
 
             - name: Lint
-              run: yarn lint
+              run: pnpm lint
 
             - name: Test
-              run: yarn test
+              run: pnpm test
 
             - uses: codecov/codecov-action@v3
 
             - name: Build
-              run: yarn build
+              run: pnpm build
