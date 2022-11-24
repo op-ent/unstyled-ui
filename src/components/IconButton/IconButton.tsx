@@ -1,5 +1,5 @@
-import React, { forwardRef, isValidElement, cloneElement } from 'react'
-import { useComponentConfig, Button } from '../..'
+import React, { forwardRef } from 'react'
+import { useComponentConfig, Button, cloneComponentWithProps } from '../..'
 import type { ComponentProps, PolymorphicRef } from '../..'
 import type { IconButtonComponent, IconButtonProps } from './IconButton.types'
 
@@ -9,7 +9,7 @@ export const IconButton: IconButtonComponent = forwardRef(
         ref?: PolymorphicRef<C>
     ) => {
         const { splitProps, getStyleAttrs } = useComponentConfig('iconButton')
-        const { filteredProps, customProps } = splitProps(props)
+        const { filteredProps, customProps } = splitProps(props, ['button'])
         const {
             children,
             icon,
@@ -19,12 +19,9 @@ export const IconButton: IconButtonComponent = forwardRef(
         const styleAttrs = getStyleAttrs(customProps)
 
         const element = icon || children
-        const _children = isValidElement(element)
-            ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              cloneElement(element as any, {
-                  'aria-hidden': true,
-              })
-            : null
+        const _children = cloneComponentWithProps(element, {
+            'aria-hidden': true,
+        })
 
         return (
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

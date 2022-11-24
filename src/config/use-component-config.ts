@@ -13,9 +13,17 @@ export function useComponentConfig(name: ComponentName) {
         identifier,
         mergeDefaults: <T extends Record<string, unknown>>(props: T) =>
             mergeDefaults({ name, props }),
-        splitProps: <T extends Record<string, unknown>>(props: T) => {
+        splitProps: <T extends Record<string, unknown>>(
+            props: T,
+            inheritedNames?: ComponentName[]
+        ) => {
             const mergedProps = mergeDefaults({ name, props })
-            const result = getCustomProps({ name, config, props: mergedProps })
+            const result = getCustomProps({
+                name,
+                config,
+                props: mergedProps,
+                inheritedNames,
+            })
             return { mergedProps, ...result }
         },
         getStyleAttrs: <T extends Record<string, unknown>>(

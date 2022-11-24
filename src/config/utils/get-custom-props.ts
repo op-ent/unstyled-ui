@@ -9,14 +9,24 @@ export type GetCustomProps<T extends Record<string, unknown>> = {
     name: ComponentName
     config: Config
     props: T
+    inheritedNames?: ComponentName[]
 }
 
 export function getCustomProps<T extends Record<string, unknown>>({
     name,
     config,
     props,
+    inheritedNames,
 }: GetCustomProps<T>) {
-    const keys = config.components[name]?.customProps ?? []
+    function getKeys() {
+        const names = [name, ...(inheritedNames || [])]
+        const keys = names.reduce((acc, name) => {
+            const _keys = config.components[name].customProps || []
+            return [...acc, ..._keys]
+        }, [] as string[])
+        return [...new Set(keys)]
+    }
+    const keys = getKeys()
 
     type ValidValue = ExcludeEmpty<CustomizableComponentsProps[typeof name]>
     type ValidKey = keyof ValidValue

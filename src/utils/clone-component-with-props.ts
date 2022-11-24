@@ -1,11 +1,11 @@
 import React from 'react'
 
 export function cloneComponentWithProps(
-    component: object,
+    component: object | React.ReactNode,
     props: Record<string, unknown>
-) {
+): React.ReactNode {
     if (!React.isValidElement(component)) {
-        return component
+        return null
     }
     return React.cloneElement(component, {
         ...props,

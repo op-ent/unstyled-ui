@@ -13,7 +13,7 @@ export const ButtonGroup: ButtonGroupComponent = forwardRef<
     ButtonGroupProps
 >((props, ref) => {
     const { splitProps, getStyleAttrs } = useComponentConfig('buttonGroup')
-    const { filteredProps, customProps } = splitProps(props)
+    const { filteredProps, customProps } = splitProps(props, ['button'])
     const {
         children,
         leftIcon,
@@ -39,7 +39,7 @@ export const ButtonGroup: ButtonGroupComponent = forwardRef<
 
     return (
         <span ref={ref} data-part="root" {...styleAttrs} {...rest}>
-            {React.Children.map(children as never, (child) =>
+            {React.Children.map(children, (child) =>
                 cloneComponentWithProps(child, buttonProps || {})
             )}
         </span>
