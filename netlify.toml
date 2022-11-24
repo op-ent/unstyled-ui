@@ -1,4 +1,4 @@
 [build]
 base = "docs"
 command = "pnpm generate"
-publish = "docs/dist"
+publish = "dist"
