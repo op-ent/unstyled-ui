@@ -53,7 +53,8 @@ const { Button } = require('@op-ent/unstyled-ui')
 ### Create a config
 
 ```ts
-import { ConfigOverride } from '@op-ent/unstyled-ui'
+// lib/config.ts
+import { createConfig } from '@op-ent/unstyled-ui'
 
 declare module '@op-ent/unstyled-ui' {
     interface CustomizableComponentsPropsOverride {
@@ -63,29 +64,28 @@ declare module '@op-ent/unstyled-ui' {
     }
 }
 
-const config: ConfigOverride = {
+export const { config, extendConfig } = createConfig({
     components: {
         button: {
             defaultProps: {
                 variant: 'secondary',
             },
-            customProps: {
-                variant: null,
-            },
+            customProps: ['variant'],
         },
     },
-}
+})
 ```
 
 ### Use the config
 
 ```tsx
 import { ConfigProvider } from '@op-ent/unstyled-ui'
+import { config } from '~/lib/config'
 
 function App() {
     return (
-        <ConfigProvider value={config}>
-            <Button variant="primary">Hello</Button>
+        <ConfigProvider config={config}>
+            <Button variant="primary">Hello world</Button>
         </ConfigProvider>
     )
 }
@@ -117,15 +117,33 @@ Using CSS data parts:
 > -   This list is not complete and may change at any time.
 > -   Names may change in the future.
 
--   [ ] Button _(WIP)_
--   [ ] ButtonGroup _(WIP)_
--   [ ] IconButton _(WIP)_
--   [ ] Badge
--   [ ] Heading
--   [ ] Paragraph
--   [ ] Input
--   [ ] Modal
--   [ ] Switch
+-   [ ] 🚧 ConfigProvider
+    -   [ ] 🚧 Behavior
+        -   useMemo ?
+    -   [ ] ❌ Docs
+    -   [ ] ❌ Tests
+    -   [ ] ❌ Example theme
+-   [ ] 🚧 Button
+    -   [ ] 🚧 Behavior
+    -   [ ] ❌ Docs
+    -   [ ] ❌ Tests
+    -   [ ] ❌ Example theme
+-   [ ] 🚧 ButtonGroup
+    -   [ ] 🚧 Behavior
+    -   [ ] ❌ Docs
+    -   [ ] ❌ Tests
+    -   [ ] ❌ Example theme
+-   [ ] 🚧 IconButton
+    -   [ ] 🚧 Behavior
+    -   [ ] ❌ Docs
+    -   [ ] ❌ Tests
+    -   [ ] ❌ Example theme
+-   [ ] ❌ Badge
+-   [ ] ❌ Heading
+-   [ ] ❌ Paragraph
+-   [ ] ❌ Input
+-   [ ] ❌ Modal
+-   [ ] ❌ Switch
 
 ## API Reference
 
