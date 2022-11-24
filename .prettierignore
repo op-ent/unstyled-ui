@@ -3,3 +3,5 @@ dist
 coverage
 storybook-static
 pnpm-lock.yaml
+docs/.nuxt
+docs/.output
