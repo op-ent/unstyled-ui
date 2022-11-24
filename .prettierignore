@@ -5,4 +5,3 @@ storybook-static
 pnpm-lock.yaml
 docs/.nuxt
 docs/.output
-docs/content
