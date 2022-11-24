@@ -10,6 +10,12 @@ export default {
     component: ButtonGroup,
     parameters,
     argTypes: {
+        ...defaultArgTypes,
+        children: {
+            control: {
+                disable: true,
+            },
+        },
         leftIcon: {
             control: {
                 disable: true,
@@ -20,7 +26,6 @@ export default {
                 disable: true,
             },
         },
-        ...defaultArgTypes,
     },
     args: {
         children: [
@@ -30,6 +35,7 @@ export default {
         ],
         disabled: false,
         loading: false,
+        variant: 'solid',
     },
     render: (args) => (
         <ConfigProvider>
@@ -42,17 +48,13 @@ export const Default: StoryObj<Props> = {}
 
 export const WithDefaultProps: StoryObj<Props> = {
     args: {
-        buttonProps: {
-            disabled: true,
-        },
+        disabled: true,
     },
 }
 
 export const OverridingDefaultProps: StoryObj<Props> = {
     args: {
-        buttonProps: {
-            disabled: true,
-        },
+        disabled: true,
         children: [
             <Button key="0" disabled={false}>
                 Button

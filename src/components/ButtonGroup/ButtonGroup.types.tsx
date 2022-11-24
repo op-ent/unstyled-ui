@@ -9,10 +9,8 @@ import type {
 export type ButtonGroupCustomizableProps =
     CustomizableComponentsProps['buttonGroup']
 
-export type ButtonGroupProps = {
-    children?: React.ReactNode
-    buttonProps?: Omit<ButtonProps, 'children'>
-} & DeepPartial<ButtonGroupCustomizableProps>
+export type ButtonGroupProps = Omit<ButtonProps, 'as'> &
+    DeepPartial<ButtonGroupCustomizableProps>
 
 export type DefaultButtonGroupProps = DeepPartial<ButtonGroupProps>
 

@@ -10,6 +10,7 @@ export default {
     component: Button,
     parameters,
     argTypes: {
+        ...defaultArgTypes,
         leftIcon: {
             control: {
                 disable: true,
@@ -20,7 +21,6 @@ export default {
                 disable: true,
             },
         },
-        ...defaultArgTypes,
     },
     args: {
         children: 'Button',
