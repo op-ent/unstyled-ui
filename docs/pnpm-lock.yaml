@@ -1,11 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@nuxt-themes/docus': ^1.0.0
+  '@nuxt-themes/docus': ^1.0.1
   nuxt: ^3.0.0
 
 devDependencies:
-  '@nuxt-themes/docus': 1.0.0_nuxt@3.0.0
+  '@nuxt-themes/docus': 1.0.1_nuxt@3.0.0
   nuxt: 3.0.0
 
 packages:
@@ -628,8 +628,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@nuxt-themes/docus/1.0.0_nuxt@3.0.0:
-    resolution: {integrity: sha512-zSYRHILwgAzVyaeXa/mhla6ffnygEJx1awNQHSK7HbtajYXVCaYkJ3S4aHJR+p0aMhVUBhLpHJJ1tXXkzJzbSw==}
+  /@nuxt-themes/docus/1.0.1_nuxt@3.0.0:
+    resolution: {integrity: sha512-Phjl+jIG6811fm18xeirGy8fymeiiWSGoiczcSW9XGYnQfhgwZaio7ucZOVqIwXzOKMvVAoG590xp6evxiGhkw==}
     dependencies:
       '@docsearch/css': 3.3.0
       '@docsearch/js': 3.3.0
@@ -644,7 +644,7 @@ packages:
       '@nuxtjs/color-mode': 3.1.8
       '@vueuse/core': 9.6.0
       '@vueuse/nuxt': 9.6.0_nuxt@3.0.0
-      pinceau: 0.6.26
+      pinceau: 0.7.1
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
@@ -683,7 +683,7 @@ packages:
     dependencies:
       '@nuxtjs/color-mode': 3.1.8
       '@vueuse/core': 9.6.0
-      pinceau: 0.6.26
+      pinceau: 0.7.1
       style-value-types: 5.1.2
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -700,7 +700,7 @@ packages:
       '@nuxt-themes/tokens': 1.1.13
       '@nuxtjs/color-mode': 3.1.8
       nuxt-icon: 0.1.7
-      pinceau: 0.6.26
+      pinceau: 0.7.1
     transitivePeerDependencies:
       - '@vue/composition-api'
       - postcss
@@ -4910,8 +4910,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /pinceau/0.6.26:
-    resolution: {integrity: sha512-RYXw+Jqgpdcs8HW3CH2EHwmDksbU2kA524pPo/QjxUvMpj+sy0g5QxXD1iYY2ybga6bUpnaXFlR5/LsRaEsYUA==}
+  /pinceau/0.7.1:
+    resolution: {integrity: sha512-FkI0bBVxZpEaI7SkJ+uUb+Yn8j87T3ZgWl8lyAnZy099C+mgiwU6PJ/rhvfYnkKHvbbYyKi1ZS0sLJ8EexPOFg==}
     dependencies:
       '@unocss/reset': 0.46.5
       '@volar/vue-language-core': 1.0.9

@@ -18,7 +18,14 @@ export default defineAppConfig({
         },
         header: {
             title: 'Unstyled UI',
-            logo: true,
+            logo: false,
+        },
+        footer: {
+            credits: {
+                icon: 'OpentIcon',
+                text: `© ${new Date().getFullYear()} op-ent. All rights reserved.`,
+                href: 'https://op-ent.fr',
+            },
         },
     },
 })

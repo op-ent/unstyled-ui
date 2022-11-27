@@ -1,0 +1,70 @@
+@import url('./satoshi.css');
+@import url('./cabinet-grotesk.css');
+
+html {
+    height: 100vh;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 63px;
+}
+
+h1,
+h1 > *,
+h2,
+h2 > *,
+h3,
+h3 > *,
+h4,
+h4 > *,
+h5,
+h5 > *,
+h6,
+h6 > *,
+.navbar-logo {
+    font-family: $dt('fonts.title') !important;
+    font-weight: 800 !important;
+    letter-spacing: normal !important;
+}
+
+.button-link {
+    background-color: $dt('colors.primary.500') !important;
+    font-weight: 500 !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.button-link:hover {
+    background-color: $dt('colors.primary.600') !important;
+}
+
+.docs-aside-tree .link.active {
+    @dark {
+        color: $dt('colors.primary.400') !important;
+    }
+}
+
+.docs-aside-tree .link.active:hover {
+    @dark {
+        color: $dt('colors.primary.300') !important;
+    }
+}
+
+.docs-aside-tree li.bordered.active {
+    @dark {
+        border-left-color: $dt('colors.primary.400') !important;
+    }
+}
+
+.docs-aside-tree li.bordered.active:hover {
+    @dark {
+        border-left-color: $dt('colors.primary.300') !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header section.center nav {
+        display: none !important;
+    }
+}
